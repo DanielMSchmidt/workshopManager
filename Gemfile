@@ -7,6 +7,10 @@ gem 'rails', '4.1.8'
 gem 'pg', group: :production
 gem 'sqlite3', group: [:development, :test]
 gem 'rails_12factor', group: :production
+
+gem 'bower-rails'
+gem 'angular-rails-templates'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
