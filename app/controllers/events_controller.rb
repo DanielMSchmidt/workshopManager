@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :set_event, only: [:edit, :update, :destroy, :subscribe]
+  before_action :authenticate_user!, except: [:subscribe]
   respond_to :html
 
   def index
@@ -30,6 +30,10 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_with(@event)
+  end
+
+  def subscribe
+    @hide_login = true
   end
 
   private

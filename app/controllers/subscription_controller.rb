@@ -1,4 +1,6 @@
 class SubscriptionController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def add
     AddSubscription.run(params).match do
       success do |subscription|

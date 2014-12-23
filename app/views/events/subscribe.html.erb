@@ -1,0 +1,10 @@
+<h1>Anmeldung für <%= @event.name %></h1>
+<form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">
+  <div class="form-group">
+    <label for="email">E-Mail Adresse</label><br>
+    <input type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
+  </div>
+  <div class="actions">
+    <input type="submit" class="btn btn-primary" value="Anmelden">
+  </div>
+</form>
