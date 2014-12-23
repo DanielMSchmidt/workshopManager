@@ -1,15 +1,11 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_event, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
   respond_to :html
 
   def index
     @events = current_user.events.all
     respond_with(@events)
-  end
-
-  def show
-    respond_with(@event)
   end
 
   def new

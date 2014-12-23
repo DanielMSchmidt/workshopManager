@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name %><br>
+    <%= f.label :name, 'Name' %><br>
     <%= f.text_field :name, :class => "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :description %><br>
+    <%= f.label :description, 'Beschreibung' %><br>
     <%= f.text_area :description, :class => "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :start %><br>
+    <%= f.label :start, 'Tag' %><br>
     <%= f.datetime_select :start %>
   </div>
   <div class="form-group">
-    <%= f.label :duration %><br>
+    <%= f.label :duration, 'Zeitraum' %><br>
     <%= f.text_field :duration, :class => "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "Speichern", :class => "btn btn-primary" %>
   </div>
 <% end %>
