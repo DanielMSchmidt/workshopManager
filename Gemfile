@@ -19,6 +19,7 @@ gem "therubyracer"
 gem 'less-rails'
 gem "twitter-bootstrap-rails"
 gem 'devise'
+gem 'solid_use_case'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
