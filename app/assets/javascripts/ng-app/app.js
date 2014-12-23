@@ -1,7 +1,8 @@
 angular
     .module('workshopManager', [
         'ngRoute',
-        'templates'
+        'templates',
+        'Devise'
     ]).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {

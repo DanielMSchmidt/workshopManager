@@ -20,5 +20,6 @@
 //= require angular-route
 //= require lumx
 //= require angular-rails-templates
+//= require angular-devise/lib/devise-min.js
 //= require_tree ../templates
 //= require_tree .
