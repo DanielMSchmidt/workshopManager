@@ -9,7 +9,7 @@
 
 ### Registered User
 
-1. Register
+1. Register / Login
 2. Workshop Overview (startdatetime, duration, name, description, subscribers[])
   -> embed snippet (which shows attributes and a form to subscribe)
 3. Mail to button to all subscibers for event
@@ -18,5 +18,6 @@
 
 ### Subscriber
 
-1. Subscribe to user / event
-2. get notifications about new event or news to events
+1. Register / Login
+2. Subscribe to user / event
+3. get notifications about new event or news to events
