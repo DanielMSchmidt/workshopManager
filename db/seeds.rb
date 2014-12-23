@@ -1,6 +1,6 @@
 unless Rails.env.production?
   user = User.create!(email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
-  event = Event.create!(user_id: user.id, name: 'Test Event', description: 'Testdescription', start: Time.now, duration: 1.5)
+  event = Event.create!(user_id: user.id, name: 'Test Event', description: 'Testdescription', start: Time.now, duration: "Zwei Stunden")
   event_subscriber = Subscriber.create!(email: 'event_subscriber@test.de')
   user_subscriber = Subscriber.create!(email: 'user_subscriber@test.de')
 
