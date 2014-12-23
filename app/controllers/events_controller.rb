@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   respond_to :html
 
   def index
-    @events = Event.all
+    @events = current_user.events.all
     respond_with(@events)
   end
 
