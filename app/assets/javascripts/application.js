@@ -12,8 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= jquery.transit
+//= velocity
+//= moment-with-locales
 //= require angular
 //= require angular-route
+//= require lumx
 //= require angular-rails-templates
 //= require_tree ../templates
 //= require_tree .
