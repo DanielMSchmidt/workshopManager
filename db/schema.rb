@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223130113) do
+ActiveRecord::Schema.define(version: 20141223141844) do
+
+  create_table "subscribers", force: true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "subscriber_id"
+    t.integer  "subscribable_id"
+    t.string   "subscribable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["subscribable_id"], name: "index_subscriptions_on_subscribable_id"
+  add_index "subscriptions", ["subscriber_id"], name: "index_subscriptions_on_subscriber_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

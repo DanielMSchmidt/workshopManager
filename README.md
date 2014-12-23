@@ -18,6 +18,5 @@
 
 ### Subscriber
 
-1. Register / Login
-2. Subscribe to user / event
-3. get notifications about new event or news to events
+1. Subscribe to user / event
+2. get notifications about new event or news to events
