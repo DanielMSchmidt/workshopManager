@@ -1,4 +1,4 @@
-class AddSubscription
+class AddSubscriptionService
   include SolidUseCase
 
   # Check if event is given

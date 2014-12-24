@@ -1,3 +1,3 @@
 class Subscriber < ActiveRecord::Base
-  has_many :subscriptions
+  has_many :subscribables, through: :assignment
 end

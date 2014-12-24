@@ -1,4 +1,4 @@
-class RemoveSubscription
+class RemoveSubscriptionService
   include SolidUseCase
 
   # Check if event and subscriber is given
