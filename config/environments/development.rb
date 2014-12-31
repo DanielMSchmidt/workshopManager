@@ -1,3 +1,4 @@
+require 'net/smtp'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -31,4 +32,12 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+  ActionMailer::Base.smtp_settings = {
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      'dschmidt+2@weluse.de',
+    :password =>       'LifZwDK_tD-53R5qQRc0fQ',
+    :authentication => :plain
+  }
+  ActionMailer::Base.delivery_method = :smtp
 end
