@@ -28,6 +28,10 @@ group :development, :test do
   gem 'rb-fsevent' if `uname` =~ /Darwin/
 end
 
+group :test do
+  gem 'capybara', '~> 2.4.1'
+end
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
