@@ -19,17 +19,17 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
-    respond_with(@event)
+    redirect_to events_path
   end
 
   def update
     @event.update(event_params)
-    respond_with(@event)
+    redirect_to events_path
   end
 
   def destroy
     @event.destroy
-    respond_with(@event)
+    redirect_to events_path
   end
 
   def subscribe
