@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def add_subscriber(subscriber)
-    Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'Event', subscribable_id: self.id)
+    Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: self.id)
   end
 
   def notify_about_subscription(subscription)
