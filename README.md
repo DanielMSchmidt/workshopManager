@@ -1,3 +1,4 @@
+[![Build Status](https://drone.io/github.com/DanielMSchmidt/workshopManager/status.png)](https://drone.io/github.com/DanielMSchmidt/workshopManager/latest)
 # Workshop Manager
 
 ## Installation
