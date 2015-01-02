@@ -3,12 +3,7 @@ class Subscription < ActiveRecord::Base
   belongs_to :subscriber
 
   def notify
-    if self.subscribable.class == "Event"
-      SubscriptionMailer.event(self).deliver
-    elsif self.subscribable.class == "User"
-      SubscriptionMailer.user(self).deliver
-    end
-
+    subscribable.notify_about_subscription(self)
     SubscriptionMailer.subscriber(self).deliver
   end
 end

@@ -9,4 +9,8 @@ class Event < ActiveRecord::Base
   def add_subscriber(subscriber)
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'Event', subscribable_id: self.id)
   end
+
+  def notify_about_subscription(subscription)
+    SubscriptionMailer.event(subscription).deliver
+  end
 end

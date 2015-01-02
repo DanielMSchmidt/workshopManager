@@ -35,11 +35,12 @@ class AddSubscriptionService
     continue(params)
   end
 
-  # Notify him about his subscription
+  # Notify subscriber about subscription
   def notify_about_subscription(params)
-    if params[:subscription].notify
+    begin
+      params[:subscription].notify
       continue(params)
-    else
+    rescue
       fail :could_not_send_notification
     end
   end

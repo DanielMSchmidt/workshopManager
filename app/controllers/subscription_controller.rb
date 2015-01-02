@@ -12,6 +12,7 @@ class SubscriptionController < ApplicationController
       end
 
       failure do |error|
+        Rails.logger.debug "SubscriptionController#add -> failed because of #{error}"
         render inline: "Da ist etwas fehlgeschlagen!"
       end
     end
