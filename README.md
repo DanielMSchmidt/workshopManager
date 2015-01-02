@@ -7,6 +7,15 @@
 - ```cp config/database.yml.sample config/database.yml```
 - ```rake db:migrate```
 
+
+## Roadmap
+- [X] User authentication
+- [X] CRUD for workshops
+- [X] Subscribe Form
+- [ ] Subscribe Snippet
+- [ ] Mail to all subscribers
+- [ ] Remove subscribers from subscribables
+
 ## Idea
 
 ### Registered User
