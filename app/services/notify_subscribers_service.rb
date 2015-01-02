@@ -1,9 +1,9 @@
-class AddSubscriptionService
+class NotifySubscribersService
   include SolidUseCase
 
-  # Check if event is given
+  # Check if subscribable is given
   # Check if there are subscribers
   # Check if notification is valid
-  # Send notifivation to each subscriber
+  # Send notification to each subscriber
 
 end
