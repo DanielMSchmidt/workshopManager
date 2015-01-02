@@ -4,6 +4,7 @@
 ## Installation
 
 - ```bundle install```
+- ```cp config/database.yml.sample config/database.yml```
 - ```rake db:migrate```
 
 ## Idea
