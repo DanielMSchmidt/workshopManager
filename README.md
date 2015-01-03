@@ -1,4 +1,5 @@
 [![Build Status](https://drone.io/github.com/DanielMSchmidt/workshopManager/status.png)](https://drone.io/github.com/DanielMSchmidt/workshopManager/latest)
+[![Code Climate](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/gpa.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
 # Workshop Manager
 
 ## Installation
@@ -31,3 +32,7 @@
 
 1. Subscribe to user / event
 2. get notifications about new event or news to events
+
+
+## Notes
+- the Token for unsubscribe request should be of format "<type>,<type_id>,<email>" in Base64 encoded

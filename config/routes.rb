@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post 'subscription/add'
-  put 'subscription/remove'
+  get 'subscription/:unsubscribe_token/remove' => 'subscription#remove', as: "subscription_remove"
 
   resources :events, except: [:show] do
     get 'subscribe', on: :member

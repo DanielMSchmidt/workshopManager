@@ -33,6 +33,7 @@ class EventsController < ApplicationController
   end
 
   def subscribe
+    # todo: refactor hide login
     @hide_login = true
   end
 

@@ -1,7 +1,8 @@
 class RemoveSubscriptionService
   include SolidUseCase
 
-  # Check if event and subscriber is given
+  # Check if token is given
+  # Get event and subscriber from token
   # Remove subscription
   # Notify owner and subscriber
 
