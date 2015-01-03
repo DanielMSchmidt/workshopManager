@@ -29,6 +29,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.4.1'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 # Use jquery as the JavaScript library
