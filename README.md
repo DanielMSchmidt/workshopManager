@@ -1,5 +1,6 @@
 [![Build Status](https://drone.io/github.com/DanielMSchmidt/workshopManager/status.png)](https://drone.io/github.com/DanielMSchmidt/workshopManager/latest)
 [![Code Climate](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/gpa.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
+[![Test Coverage](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/coverage.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
 # Workshop Manager
 
 ## Installation
