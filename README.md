@@ -12,9 +12,9 @@
 - [X] User authentication
 - [X] CRUD for workshops
 - [X] Subscribe Form
-- [ ] Subscribe Snippet
-- [ ] Mail to all subscribers
 - [ ] Remove subscribers from subscribables
+- [ ] Mail from subscribable to all subscribers
+- [ ] Subscribe Snippet
 
 ## Idea
 
