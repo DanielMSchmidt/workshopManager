@@ -18,8 +18,6 @@ feature "RemoveSubscriptions", :type => :feature do
     expect(subscriber.subscriptions.count).to eq(1)
 
     # Test
-    expect_any_instance_of(Subscription).to receive(:notify).at_least(:once)
-
     url = URI.parse(subscription_remove_path({unsubscribe_token: token}))
     req = Net::HTTP::Get.new(url.to_s)
 
