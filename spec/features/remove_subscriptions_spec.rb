@@ -24,6 +24,7 @@ feature "RemoveSubscriptions", :type => :feature do
     req = Net::HTTP::Get.new(url.to_s)
 
     # Test model changes (maybe move into unit test)
+    expect(RemoveSubscriptionService).to receive(:run)
     expect(event.subscriptions.count).to eq(0)
     expect(subscriber.subscriptions.count).to eq(0)
   end
