@@ -26,4 +26,29 @@ feature "RemoveSubscriptions", :type => :feature do
     expect(event.subscriptions.count).to eq(0)
     expect(subscriber.subscriptions.count).to eq(0)
   end
+
+  scenario "Unsubscribe to an user with valid token" do
+    # Clean up
+    Event.all.destroy_all
+    User.all.destroy_all
+    Subscriber.all.destroy_all
+    Subscription.all.destroy_all
+
+    # Setup
+    subscriber = Subscriber.create(email: "test@test.org")
+    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    token = Base64.encode64("User,#{user.id},test@test.org")
+    Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: user.id)
+    expect(user.subscriptions.count).to eq(1)
+    expect(subscriber.subscriptions.count).to eq(1)
+
+    # Test
+    url = URI.parse(subscription_remove_path({unsubscribe_token: token}))
+    req = Net::HTTP::Get.new(url.to_s)
+
+    # Test model changes (maybe move into unit test)
+    expect(RemoveSubscriptionService).to receive(:run)
+    expect(user.subscriptions.count).to eq(0)
+    expect(subscriber.subscriptions.count).to eq(0)
+  end
 end
