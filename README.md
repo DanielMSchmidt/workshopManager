@@ -14,7 +14,7 @@
 - [X] User authentication
 - [X] CRUD for workshops
 - [X] Subscribe Form
-- [ ] Remove subscribers from subscribables
+- [X] Remove subscribers from subscribables
 - [ ] Mail from subscribable to all subscribers
 - [ ] Subscribe Snippet
 
