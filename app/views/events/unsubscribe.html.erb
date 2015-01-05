@@ -1,0 +1,12 @@
+<h1>Abmeldung für <%= @event.name %></h1>
+<form accept-charset="UTF-8" method="POST" class="js-unsubscribe-event-form">
+  <div class="form-group">
+      <input name="subscribable_id" type="hidden" value="<%= @event.id %>">
+      <input name="subscribable_type" type="hidden" value="Event">
+    <label for="email">E-Mail Adresse</label><br>
+    <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
+  </div>
+  <div class="actions">
+    <input type="submit" class="btn btn-primary" value="Abmelden">
+  </div>
+</form>

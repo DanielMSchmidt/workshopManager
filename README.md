@@ -1,4 +1,6 @@
 [![Build Status](https://drone.io/github.com/DanielMSchmidt/workshopManager/status.png)](https://drone.io/github.com/DanielMSchmidt/workshopManager/latest)
+[![Code Climate](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/gpa.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
+[![Test Coverage](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/coverage.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
 # Workshop Manager
 
 ## Installation
@@ -6,15 +8,19 @@
 - ```bundle install```
 - ```cp config/database.yml.sample config/database.yml```
 - ```rake db:migrate```
+- ```rake db:seed``` # seeds the database
 
 
 ## Roadmap
 - [X] User authentication
 - [X] CRUD for workshops
 - [X] Subscribe Form
-- [ ] Subscribe Snippet
-- [ ] Mail to all subscribers
-- [ ] Remove subscribers from subscribables
+- [X] Remove subscribers from subscribables
+- [ ] Mail from subscribable to all subscribers
+- [ ] Write js to handle the unsubscribale form
+- [ ] User has name
+- [ ] Build Subscribe Snippet
+- [ ] Public page for event, where outsiders can see notifications send and which has links to subscribe / unsubscribe
 
 ## Idea
 
@@ -31,3 +37,8 @@
 
 1. Subscribe to user / event
 2. get notifications about new event or news to events
+
+
+## Notes
+- the Token for unsubscribe request should be of format "<type>,<type_id>,<email>" in Base64 encoded
+

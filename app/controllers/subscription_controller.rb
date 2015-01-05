@@ -22,6 +22,20 @@ class SubscriptionController < ApplicationController
     end
   end
 
+  def notify
+
+  end
+
   def remove
+    RemoveSubscriptionService.run(params).match do
+      success do |result|
+        render "remove"
+      end
+
+      failure do |error|
+        Rails.logger.debug "SubscriptionController#remove -> failed because of #{error}"
+        render inline: "Da ist etwas fehlgeschlagen!"
+      end
+    end
   end
 end

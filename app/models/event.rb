@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :subscriptions, as: :subscribable
 
+  delegate :name, to: :user, prefix: true
+
   def subscribers
     self.subscriptions.map(&:subscribable)
   end

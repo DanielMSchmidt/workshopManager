@@ -1,0 +1,34 @@
+<h1><%= @event.name %> von <%= @event.user_name%></h1>
+<div class="row">
+  <div class="col-xs-9">
+    <h3>Anmeldungen</h3>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>E-Mailadresse</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if @event.subscriptions.any? %>
+          <% @event.subscriptions.each do |subscription| %>
+            <tr>
+              <td><%= subscription.subscriber.email %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td>Leider gibt es bisher keine Anmeldungen</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-3">
+    <h3>Links (zum weitergeben)</h3>
+    <ul>
+      <li>Anmelden: <%= link_to subscribe_event_url(@event), subscribe_event_url(@event)%></li>
+      <li>Abmelden: <%= link_to unsubscribe_event_url(@event), unsubscribe_event_url(@event)%></li>
+    </ul>
+  </div>
+</div>
