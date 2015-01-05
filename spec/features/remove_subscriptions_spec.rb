@@ -1,6 +1,6 @@
 require 'rails_helper'
 require "base64"
-require 'net/http'
+
 
 feature "RemoveSubscriptions", :type => :feature do
   scenario "Unsubscribe to an event with valid token" do
@@ -11,18 +11,17 @@ feature "RemoveSubscriptions", :type => :feature do
 
     # Setup
     subscriber = Subscriber.create(email: "test@test.org")
-    event = Event.create(name: 'test-event', description: 'test description', user_id: 1, start: Time.now, duration: '2 hours')
+    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    event = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
     token = Base64.encode64("Event,#{event.id},test@test.org")
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'Event', subscribable_id: event.id)
     expect(event.subscriptions.count).to eq(1)
     expect(subscriber.subscriptions.count).to eq(1)
 
     # Test
-    url = URI.parse(subscription_remove_path({unsubscribe_token: token}))
-    req = Net::HTTP::Get.new(url.to_s)
+    visit subscription_remove_path({unsubscribe_token: token})
 
     # Test model changes (maybe move into unit test)
-    expect(RemoveSubscriptionService).to receive(:run)
     expect(event.subscriptions.count).to eq(0)
     expect(subscriber.subscriptions.count).to eq(0)
   end
@@ -43,11 +42,9 @@ feature "RemoveSubscriptions", :type => :feature do
     expect(subscriber.subscriptions.count).to eq(1)
 
     # Test
-    url = URI.parse(subscription_remove_path({unsubscribe_token: token}))
-    req = Net::HTTP::Get.new(url.to_s)
+    visit subscription_remove_path({unsubscribe_token: token})
 
     # Test model changes (maybe move into unit test)
-    expect(RemoveSubscriptionService).to receive(:run)
     expect(user.subscriptions.count).to eq(0)
     expect(subscriber.subscriptions.count).to eq(0)
   end

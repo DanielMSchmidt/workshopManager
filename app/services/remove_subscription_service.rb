@@ -3,14 +3,14 @@ require "base64"
 class RemoveSubscriptionService
   include SolidUseCase
 
-  steps :check_token, :decode_token, :remove_subscription, :notify
+  steps :check_token, :decode_token, :get_subscriber, :get_subscription, :notify, :remove_subscription
 
   # Check if token is given
   def check_token(params)
-    if params[:token].nil?
+    if params[:unsubscribe_token].nil?
       fail(:no_token_given)
     else
-      continue(params[:token])
+      continue(params[:unsubscribe_token])
     end
   end
 
@@ -30,11 +30,31 @@ class RemoveSubscriptionService
     end
   end
 
+  # Get the subscriber
+  def get_subscriber(params)
+    subscriber = Subscriber.where(email: params[:email]).first
+    unless subscriber.nil?
+      params[:subscriber] = subscriber
+      continue(params)
+    else
+      fail(:unknown_subscriber)
+    end
+  end
+
+  # Get the subscription
+  def get_subscription(params)
+    subscription = Subscription.where(subscribable_type: params[:subscribable_type], subscribable_id: params[:subscribable_id], subscriber_id: params[:subscriber].id)
+    unless subscription.first.nil?
+      params[:subscription] = subscription.first
+      continue(params)
+    else
+      fail(:unknown_subscription)
+    end
+  end
+
   # Remove subscription
   def remove_subscription(params)
-    subscription = Subscription.where(subscribable_type: params[:subscribable_type], subscribable_id: params[:subscribable_id], email: params[:email])
-    if subscription.destroy
-      params[:subscription] = subscription
+    if params[:subscription].destroy
       continue(params)
     else
       fail(:could_not_destroy)
