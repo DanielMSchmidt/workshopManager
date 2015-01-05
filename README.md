@@ -8,6 +8,7 @@
 - ```bundle install```
 - ```cp config/database.yml.sample config/database.yml```
 - ```rake db:migrate```
+- ```rake db:seed``` # seeds the database
 
 
 ## Roadmap
