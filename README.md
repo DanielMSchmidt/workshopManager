@@ -19,8 +19,10 @@
 - [ ] Mail from subscribable to all subscribers
 - [ ] Write js to handle the unsubscribale form
 - [ ] User has name
+- [ ] subscription controller should only respond in json
 - [ ] Build Subscribe Snippet
-- [ ] Public page for event, where outsiders can see notifications send and which has links to subscribe / unsubscribe
+- [ ] Public page for event, with notifications send and which has links to subscribe / unsubscribe
+
 
 ## Idea
 
