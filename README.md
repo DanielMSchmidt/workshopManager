@@ -15,8 +15,8 @@
 - [X] CRUD for workshops
 - [X] Subscribe Form
 - [X] Remove subscribers from subscribables
-- [ ] Write js to handle the unsubscribale form
 - [ ] Mail from subscribable to all subscribers
+- [ ] Write js to handle the unsubscribale form
 - [ ] Add name to user
 - [ ] Subscribe Snippet
 
