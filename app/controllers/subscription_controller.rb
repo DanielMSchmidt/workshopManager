@@ -23,7 +23,16 @@ class SubscriptionController < ApplicationController
   end
 
   def notify
+    NotifySubscribersService.run(params).match do
+      success do |message|
+        render inline: "Nachricht versendet!"
+      end
 
+      failure do |error|
+        Rails.logger.debug "SubscriptionController#notify -> failed because of #{error}"
+        render inline: "Da ist etwas fehlgeschlagen!"
+      end
+    end
   end
 
   def remove
