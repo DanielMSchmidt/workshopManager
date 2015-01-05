@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   post 'subscription/add'
   get 'subscription/:unsubscribe_token/remove' => 'subscription#remove', as: "subscription_remove"
 
-  resources :events, except: [:show] do
+  resources :events do
     get 'subscribe', on: :member
+    get 'unsubscribe', on: :member
   end
 
   resources :users, only: [] do

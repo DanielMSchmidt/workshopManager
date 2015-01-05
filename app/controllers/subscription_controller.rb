@@ -22,6 +22,10 @@ class SubscriptionController < ApplicationController
     end
   end
 
+  def notify
+
+  end
+
   def remove
     RemoveSubscriptionService.run(params).match do
       success do |result|

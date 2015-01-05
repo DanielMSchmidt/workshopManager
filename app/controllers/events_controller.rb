@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:edit, :update, :destroy, :subscribe]
-  before_action :authenticate_user!, except: [:subscribe]
+  before_action :set_event, only: [:edit, :update, :destroy, :subscribe, :unsubscribe, :show]
+  before_action :authenticate_user!, except: [:subscribe, :unsubscribe]
   respond_to :html
 
   def index
@@ -14,6 +14,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
   end
 
   def create
@@ -33,6 +36,11 @@ class EventsController < ApplicationController
   end
 
   def subscribe
+    # todo: refactor hide login
+    @hide_login = true
+  end
+
+  def unsubscribe
     # todo: refactor hide login
     @hide_login = true
   end
