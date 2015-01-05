@@ -18,8 +18,9 @@
 - [X] Remove subscribers from subscribables
 - [ ] Mail from subscribable to all subscribers
 - [ ] Write js to handle the unsubscribale form
-- [ ] Add name to user
-- [ ] Subscribe Snippet
+- [ ] User has name
+- [ ] Build Subscribe Snippet
+- [ ] Public page for event, where outsiders can see notifications send and which has links to subscribe / unsubscribe
 
 ## Idea
 
