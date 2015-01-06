@@ -17,7 +17,7 @@ RSpec.describe Subscriber, :type => :model do
 
       event_mail = double('Event Mail')
       expect(event_mail).to receive(:deliver).and_return(true)
-      expect(SubscriberMailer).to receive(:notify).with('test@test.de', 'subscriber@test.de', 'Neue Info für test-event', message).and_return(event_mail)
+      expect(SubscriberMailer).to receive(:notify).with('test@test.de', 'subscriber@test.de', 'Neue Informationen zu dem Workshop test-event', message).and_return(event_mail)
 
       subscriber.notify(subscribable, message)
     end
@@ -29,7 +29,7 @@ RSpec.describe Subscriber, :type => :model do
 
       user_mail = double('User Mail')
       expect(user_mail).to receive(:deliver).and_return(true)
-      expect(SubscriberMailer).to receive(:notify).with('test@test.de', 'subscriber@test.de', 'Neue Info für Username', message).and_return(user_mail)
+      expect(SubscriberMailer).to receive(:notify).with('test@test.de', 'subscriber@test.de', 'Neue Infos über Username', message).and_return(user_mail)
 
       subscriber.notify(subscribable, message)
     end

@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def notify_about_subscription(subscription)
     SubscriptionMailer.user(self).deliver
   end
+
+  def notification_subject
+    "Neue Infos über #{self.name}"
+  end
 end
