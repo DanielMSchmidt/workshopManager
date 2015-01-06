@@ -35,8 +35,11 @@ class NotifySubscribersService
   # Send message to each subscriber
   def notfiy_subscribers(params)
     subject = params[:subscribable]
-    subject.subscribers.eachd do |subscriber|
+
+    subject.subscribers.each do |subscriber|
       subscriber.notify(subject, params[:message])
     end
+
+    continue(params)
   end
 end
