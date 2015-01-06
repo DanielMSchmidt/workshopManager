@@ -3,15 +3,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :subscriptions, as: :subscribable
+  has_many :subscribers, through: :subscriptions
   has_many :events
 
   def name
     # monkey patching, remove as soon as there is something in the database
     "Username"
-  end
-
-  def subscribers
-    self.subscriptions.map(&:subscribable)
   end
 
   def add_subscriber(subscriber)
