@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'message/index'
+
   post 'subscription/add'
   post 'subscription/notify'
   get 'subscription/:unsubscribe_token/remove' => 'subscription#remove', as: "subscription_remove"

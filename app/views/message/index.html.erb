@@ -1,0 +1,18 @@
+<h1>Versende eine Nachricht an alle deine Anhänger</h1>
+<p class="bg-info">
+  Über neue Workshops musst du sie nicht informieren, die entsprechenden E-Mails werden automatisch versendet.
+</p>
+<div class="row">
+  <form accept-charset="UTF-8" method="POST" action="<%= subscription_notify_url %>">
+    <input name="subscribable_id" type="hidden" value="<%= current_user.id %>">
+    <input name="subscribable_type" type="hidden" value="User">
+
+    <div class="form-group col-xs-12">
+      <label for="message">Nachricht</label><br>
+      <textarea id="message" name="message" placeholder="Bitte Nachricht eingeben (Diese wird nach dem Absenden an alle Abonnenten verschickt)" class="form-control"></textarea>
+      <div class="actions">
+        <input type="submit" class="btn btn-primary" value="Absenden">
+      </div>
+    </div>
+  </form>
+</div>
