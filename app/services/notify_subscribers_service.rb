@@ -15,7 +15,7 @@ class NotifySubscribersService
 
   # Check if subscribable is given and get it
   def get_subscribable(params)
-    params[:subscribable] = params[:subscribable_type].constantize.find(params[:subscribable_id]).includes(:subscriber)
+    params[:subscribable] = params[:subscribable_type].constantize.find(params[:subscribable_id])
     unless params[:subscribable].nil?
       continue(params)
     else
