@@ -5,12 +5,19 @@
     <input name="subscribable_id" type="hidden" value="<%= @event.id %>">
     <input name="subscribable_type" type="hidden" value="Event">
 
-    <div class="form-group col-xs-12">
+    <div class="form-group col-xs-9">
       <label for="message">Nachricht</label><br>
       <textarea id="message" name="message" placeholder="Bitte Nachricht eingeben (Diese wird nach dem Absenden an alle Teilnehmer verschickt)" class="form-control"></textarea>
       <div class="actions">
         <input type="submit" class="btn btn-primary" value="Absenden">
       </div>
+    </div>
+    <div class="col-xs-3">
+      <ul>
+        <% @event.messages.each do |message| %>
+          <li><%= message.content %></li>
+        <% end %>
+      </ul>
     </div>
   </form>
 </div>
