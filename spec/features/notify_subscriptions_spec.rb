@@ -7,12 +7,14 @@ feature "NotifySubscriptions", :type => :feature do
     Subscriber.all.destroy_all
     Subscription.all.destroy_all
     Event.all.destroy_all
+    Message.all.destroy_all
 
     # Setup
     user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     event = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
     subscriber = Subscriber.create(email: 'subscriber@test.de')
     Subscription.create(subscribable_id: event.id, subscribable_type: 'Event', subscriber_id: subscriber.id)
+    expect(Message.count).to eq(0)
 
     # Sign in
     visit new_user_session_path
@@ -29,6 +31,9 @@ feature "NotifySubscriptions", :type => :feature do
     fill_in "message", with: "My great message"
     click_button "Absenden"
     expect(page).to have_text("Nachricht versendet!")
+
+    expect(Message.count).to eq(1)
+    expect(event.messages.count).to eq(1)
   end
 
   scenario "Authorized user sends notification for self" do
@@ -37,11 +42,13 @@ feature "NotifySubscriptions", :type => :feature do
     Subscriber.all.destroy_all
     Subscription.all.destroy_all
     Event.all.destroy_all
+    Message.all.destroy_all
 
     # Setup
     user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     subscriber = Subscriber.create(email: 'subscriber@test.de')
     Subscription.create(subscribable_id: user.id, subscribable_type: 'User', subscriber_id: subscriber.id)
+    expect(Message.count).to eq(0)
 
     # Sign in
     visit new_user_session_path
@@ -58,6 +65,8 @@ feature "NotifySubscriptions", :type => :feature do
     fill_in "message", with: "My great message"
     click_button "Absenden"
     expect(page).to have_text("Nachricht versendet!")
+    expect(Message.count).to eq(1)
+    expect(user.messages.count).to eq(1)
   end
 
   scenario "Authorized user sends empty message" do
@@ -66,12 +75,14 @@ feature "NotifySubscriptions", :type => :feature do
     Subscriber.all.destroy_all
     Subscription.all.destroy_all
     Event.all.destroy_all
+    Message.all.destroy_all
 
     # Setup
     user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     event = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
     subscriber = Subscriber.create(email: 'subscriber@test.de')
     Subscription.create(subscribable_id: event.id, subscribable_type: 'Event', subscriber_id: subscriber.id)
+    expect(Message.count).to eq(0)
 
     # Sign in
     visit new_user_session_path
@@ -87,5 +98,6 @@ feature "NotifySubscriptions", :type => :feature do
     expect(page).to have_text("test-event von")
     click_button "Absenden"
     expect(page).to_not have_text("Nachricht versendet!")
+    expect(Message.count).to eq(0)
   end
 end

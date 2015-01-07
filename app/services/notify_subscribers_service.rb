@@ -1,7 +1,7 @@
 class NotifySubscribersService
   include SolidUseCase
 
-  steps :validate_subscribable_type, :get_subscribable, :check_message, :notfiy_subscribers
+  steps :validate_subscribable_type, :get_subscribable, :check_message, :persist_message, :notfiy_subscribers
 
   # Validate subscribable type
 
@@ -30,6 +30,13 @@ class NotifySubscribersService
     else
       fail(:no_message_given)
     end
+  end
+
+  # Build and save a message object
+  def persist_message(params)
+    message = params[:subscribable].messages.create(content: params[:message])
+    params[:message_object] = message
+    continue(params)
   end
 
   # Send message to each subscriber
