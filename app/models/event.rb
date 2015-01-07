@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :subscriptions, as: :subscribable
   has_many :subscribers, through: :subscriptions
+  has_many :messages, as: :subscribable
 
   delegate :name, to: :user, prefix: true
   delegate :email, to: :user, prefix: false

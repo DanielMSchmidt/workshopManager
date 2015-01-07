@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions, as: :subscribable
   has_many :subscribers, through: :subscriptions
   has_many :events
+  has_many :messages, as: :subscribable
 
   validates :name, :email, presence: true
 

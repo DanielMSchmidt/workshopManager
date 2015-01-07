@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107170419) do
+ActiveRecord::Schema.define(version: 20150107172419) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20150107170419) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "messages", force: true do |t|
+    t.integer  "subscribable_id"
+    t.string   "subscribable_type"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subscribers", force: true do |t|
     t.string   "email"
