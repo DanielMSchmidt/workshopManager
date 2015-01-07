@@ -10,7 +10,7 @@ RSpec.describe Subscriber, :type => :model do
     end
 
     it "should send an email from the event owner to self with right message" do
-      user = User.create!(email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
+      user = User.create!(name: 'Username', email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
       subscriber = Subscriber.create(email: 'subscriber@test.de')
       subscribable = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
       message = "This message should be send"
@@ -23,7 +23,7 @@ RSpec.describe Subscriber, :type => :model do
     end
 
     it "should send an email from user to self with right message" do
-      subscribable = User.create!(email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
+      subscribable = User.create!(name: 'Username', email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
       subscriber = Subscriber.create(email: 'subscriber@test.de')
       message = "This message should be send"
 

@@ -57,7 +57,7 @@ feature "AddSubscriptions", :type => :feature do
     Subscription.all.destroy_all
 
     # Setup
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
 
     # Test
     expect_any_instance_of(Subscription).to receive(:notify).at_least(:once)
@@ -82,7 +82,7 @@ feature "AddSubscriptions", :type => :feature do
     Subscription.all.destroy_all
 
     # Setup
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     subscriber = Subscriber.create(email: "test@test.org")
 
     # Test

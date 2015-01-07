@@ -4,7 +4,7 @@ RSpec.describe Subscription, :type => :model do
 
   describe "#notify" do
     it "should send the right mails and deliver them for an event type" do
-      user = User.create!(email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
+      user = User.create!(name: 'Username', email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
       event = Event.create(name: 'Test', description: 'Test description', user_id: user.id, start: Time.now, duration: 'Test duration')
       subscriber = Subscriber.create(email: 'subscriber@test.de')
       subscription = Subscription.create(subscriber_id: subscriber.id, subscribable_id: event.id, subscribable_type: 'Event')
@@ -21,7 +21,7 @@ RSpec.describe Subscription, :type => :model do
     end
 
     it "should send the right mails and deliver them for an user type" do
-      user = User.create!(email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
+      user = User.create!(name: 'Username', email: 'test@test.de', password: 'testtest', password_confirmation: 'testtest' )
       subscriber = Subscriber.create(email: 'subscriber@test.de')
       subscription = Subscription.create(subscriber_id: subscriber.id, subscribable_id: user.id, subscribable_type: 'User')
 

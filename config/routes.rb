@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     get "subscribe" => "subscription#new_for_user", on: :member
   end
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   root 'static#index'
 end

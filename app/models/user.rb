@@ -6,10 +6,7 @@ class User < ActiveRecord::Base
   has_many :subscribers, through: :subscriptions
   has_many :events
 
-  def name
-    # monkey patching, remove as soon as there is something in the database
-    "Username"
-  end
+  validates :name, :email, presence: true
 
   def add_subscriber(subscriber)
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: self.id)

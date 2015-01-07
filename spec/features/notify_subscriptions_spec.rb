@@ -9,7 +9,7 @@ feature "NotifySubscriptions", :type => :feature do
     Event.all.destroy_all
 
     # Setup
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     event = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
     subscriber = Subscriber.create(email: 'subscriber@test.de')
     Subscription.create(subscribable_id: event.id, subscribable_type: 'Event', subscriber_id: subscriber.id)
@@ -39,7 +39,7 @@ feature "NotifySubscriptions", :type => :feature do
     Event.all.destroy_all
 
     # Setup
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     subscriber = Subscriber.create(email: 'subscriber@test.de')
     Subscription.create(subscribable_id: user.id, subscribable_type: 'User', subscriber_id: subscriber.id)
 
@@ -68,7 +68,7 @@ feature "NotifySubscriptions", :type => :feature do
     Event.all.destroy_all
 
     # Setup
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     event = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
     subscriber = Subscriber.create(email: 'subscriber@test.de')
     Subscription.create(subscribable_id: event.id, subscribable_type: 'Event', subscriber_id: subscriber.id)

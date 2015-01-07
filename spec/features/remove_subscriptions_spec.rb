@@ -11,7 +11,7 @@ feature "RemoveSubscriptions", :type => :feature do
 
     # Setup
     subscriber = Subscriber.create(email: "test@test.org")
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     event = Event.create(name: 'test-event', description: 'test description', user_id: user.id, start: Time.now, duration: '2 hours')
     token = Base64.encode64("Event,#{event.id},test@test.org")
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'Event', subscribable_id: event.id)
@@ -35,7 +35,7 @@ feature "RemoveSubscriptions", :type => :feature do
 
     # Setup
     subscriber = Subscriber.create(email: "test@test.org")
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     token = Base64.encode64("User,#{user.id},test@test.org")
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: user.id)
     expect(user.subscriptions.count).to eq(1)
@@ -58,7 +58,7 @@ feature "RemoveSubscriptions", :type => :feature do
 
     # Setup
     subscriber = Subscriber.create(email: "test@test.org")
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     token = "completelyuselesstoken"
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: user.id)
     expect(user.subscriptions.count).to eq(1)
@@ -81,7 +81,7 @@ feature "RemoveSubscriptions", :type => :feature do
 
     # Setup
     subscriber = Subscriber.create(email: "test@test.org")
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     token = Base64.encode64("User,#{user.id},unknown@test.org")
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: user.id)
     expect(user.subscriptions.count).to eq(1)
@@ -104,7 +104,7 @@ feature "RemoveSubscriptions", :type => :feature do
 
     # Setup
     subscriber = Subscriber.create(email: "test@test.org")
-    user = User.create!(email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
+    user = User.create!(name: 'Username', email: 'tester@test.de', password: 'testtest', password_confirmation: 'testtest' )
     token = Base64.encode64("User,#{user.id},test@test.org")
     expect(user.subscriptions.count).to eq(0)
     expect(subscriber.subscriptions.count).to eq(0)
