@@ -20,6 +20,7 @@ gem 'less-rails'
 gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'solid_use_case'
+gem "autoprefixer-rails"
 
 group :development, :test do
   gem 'spring-commands-rspec'

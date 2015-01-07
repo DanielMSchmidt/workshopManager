@@ -1,7 +1,32 @@
-$('.js-unsubscribe-event-form').on('submit', function (e){
-  // Prevent form from being submit
-  // Get the right token and put it into the path
-  // Do a get request, while adding a spinner
-    // On fail: Cancel spinner and alert the error, clear the form
-    // On success: Cancel spinner and render a thank you page like message, which replaces the form
+$(function() {
+  'use strict';
+
+  var getPath = function (token) {
+    return '/subscription/' + token + '/remove';
+  }, spinner = $('<div id="spinner" class="progress"></div>');
+
+  $('.js-unsubscribe-event-form').submit(function (e){
+    e.preventDefault(); // Prevent form from being submit
+    var arr, path, promise;
+
+    // Get the right token
+    arr = $.map([$('input[name=subscribable_id]'), $('input[name=subscribable_type]'), $('input[name=email]')], function($el){
+      return $el.val();
+    });
+    path = getPath(btoa(arr.join(','))); // put it into the path
+
+    $('.js-unsubscribe-event-form').hide(300, function() {
+      $('.js-unsubscribe-event-form').after(spinner); // adding a spinner
+      promise = $.get(path) // Do a get request
+
+      promise.done(function(data){
+        $('#spinner').replaceWith('Fertig!');
+      });
+
+      promise.fail(function(error){
+        console.error(error);
+        $('#spinner').replaceWith('Fehler!');
+      });
+    });
+  });
 });

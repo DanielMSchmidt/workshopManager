@@ -19,7 +19,7 @@
 - [X] Mail from subscribable to all subscribers
 - [X] User has name
 - [X] Persist the send messages
-- [ ] Write js to handle the unsubscribale form
+- [X] Write js to handle the unsubscribale form
 - [ ] Info mail to subscribers of user about new events
 - [ ] subscription controller should only respond in json
 - [ ] Build Subscribe Snippet
