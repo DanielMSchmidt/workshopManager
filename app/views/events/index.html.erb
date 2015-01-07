@@ -18,7 +18,7 @@
         <td><%= truncate(event.description) %></td>
         <td><%= event.start %></td>
         <td><%= event.duration %></td>
-        <td><%= link_to 'Info', event_path(event) %></td>
+        <td><%= link_to '', event_path(event), :class => "fa fa-info" %></td>
         <td><%= link_to '', edit_event_path(event), :class => "fa fa-gear" %></td>
         <td><%= link_to 'X', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

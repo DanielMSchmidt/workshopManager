@@ -1,11 +1,13 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   has_many :subscriptions, as: :subscribable
+  has_many :subscribers, through: :subscriptions
 
   delegate :name, to: :user, prefix: true
+  delegate :email, to: :user, prefix: false
 
-  def subscribers
-    self.subscriptions.map(&:subscribable)
+  def notification_subject
+    "Neue Informationen zu dem Workshop #{self.name}"
   end
 
   def add_subscriber(subscriber)

@@ -16,11 +16,15 @@
 - [X] CRUD for workshops
 - [X] Subscribe Form
 - [X] Remove subscribers from subscribables
-- [ ] Mail from subscribable to all subscribers
+- [X] Mail from subscribable to all subscribers
+- [X] User has name
+- [ ] Persist the send messages
 - [ ] Write js to handle the unsubscribale form
-- [ ] User has name
+- [ ] Info mail to subscribers of user about new events
+- [ ] subscription controller should only respond in json
 - [ ] Build Subscribe Snippet
-- [ ] Public page for event, where outsiders can see notifications send and which has links to subscribe / unsubscribe
+- [ ] Public page for event, with notifications send and which has links to subscribe / unsubscribe
+
 
 ## Idea
 

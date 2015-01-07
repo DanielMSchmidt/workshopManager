@@ -3,16 +3,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :subscriptions, as: :subscribable
+  has_many :subscribers, through: :subscriptions
   has_many :events
 
-  def name
-    # monkey patching, remove as soon as there is something in the database
-    "Username"
-  end
-
-  def subscribers
-    self.subscriptions.map(&:subscribable)
-  end
+  validates :name, :email, presence: true
 
   def add_subscriber(subscriber)
     Subscription.create(subscriber_id: subscriber.id, subscribable_type: 'User', subscribable_id: self.id)
@@ -20,5 +14,9 @@ class User < ActiveRecord::Base
 
   def notify_about_subscription(subscription)
     SubscriptionMailer.user(self).deliver
+  end
+
+  def notification_subject
+    "Neue Infos über #{self.name}"
   end
 end

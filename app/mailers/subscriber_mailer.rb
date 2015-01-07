@@ -1,0 +1,13 @@
+class SubscriberMailer < ActionMailer::Base
+
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.subscriber_mailer.notify.subject
+  #
+  def notify(from, to, subject, message)
+    @message = message
+
+    mail to: to, from: from, subject: subject
+  end
+end
