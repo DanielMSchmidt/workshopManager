@@ -1,5 +1,5 @@
 module Public
-  class EventsController < ApplicationController
+  class EventsController < Public::BaseController
     before_action :set_event
     respond_to :html
 

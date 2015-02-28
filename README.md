@@ -21,9 +21,9 @@
 - [X] Persist the send messages
 - [X] Write js to handle the unsubscribale form
 - [X] subscription controller should only respond in json
-- [-] Public page for event
+- [ ] Public page for event
   - [X] General Info
-  - [ ] Latest notifications
+  - [X] Latest notifications
   - [ ] Subscribe
   - [ ] Unsubscriber
 - [ ] Public page for user (with list of done and upcoming events)
