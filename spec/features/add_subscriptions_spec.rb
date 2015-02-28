@@ -16,7 +16,7 @@ feature "AddSubscriptions", :type => :feature do
     visit subscribe_event_path(event)
     fill_in "email", :with => "test@test.org"
     click_button "Anmelden"
-    expect(page).to have_text("Sie wurden erfolgreich angemeldet.")
+    expect(page.status_code).to eq(201)
 
     # Test model changes (maybe move into unit test)
     subscriber = Subscriber.where(email: "test@test.org").first
@@ -42,7 +42,7 @@ feature "AddSubscriptions", :type => :feature do
     visit subscribe_event_path(event)
     fill_in "email", :with => "test@test.org"
     click_button "Anmelden"
-    expect(page).to have_text("Sie wurden erfolgreich angemeldet.")
+    expect(page.status_code).to eq(201)
 
     # Test model changes (maybe move into unit test)
     expect(event.subscriptions.count).to eq(1)
@@ -65,7 +65,7 @@ feature "AddSubscriptions", :type => :feature do
     visit subscribe_user_path(user)
     fill_in "email", :with => "test@test.org"
     click_button "Anmelden"
-    expect(page).to have_text("Sie wurden erfolgreich angemeldet.")
+    expect(page.status_code).to eq(201)
 
     # Test model changes (maybe move into unit test)
     subscriber = Subscriber.where(email: "test@test.org").first
@@ -91,7 +91,7 @@ feature "AddSubscriptions", :type => :feature do
     visit subscribe_user_path(user)
     fill_in "email", :with => "test@test.org"
     click_button "Anmelden"
-    expect(page).to have_text("Sie wurden erfolgreich angemeldet.")
+    expect(page.status_code).to eq(201)
 
     # Test model changes (maybe move into unit test)
     expect(user.subscriptions.count).to eq(1)

@@ -1,5 +1,5 @@
 require 'rails_helper'
-require "base64"
+require 'base64'
 
 
 feature "RemoveSubscriptions", :type => :feature do
@@ -65,7 +65,7 @@ feature "RemoveSubscriptions", :type => :feature do
     expect(subscriber.subscriptions.count).to eq(1)
 
     # Test
-    visit subscription_remove_path({unsubscribe_token: token})
+    get subscription_remove_path({unsubscribe_token: token})
 
     # Test model changes
     expect(user.subscriptions.count).to eq(1)

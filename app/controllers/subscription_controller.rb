@@ -1,5 +1,6 @@
 class SubscriptionController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  respond_to :json
 
   def new_for_user
     @user = User.find(params[:id])
@@ -8,16 +9,17 @@ class SubscriptionController < ApplicationController
   def add
     AddSubscriptionService.run(params).match do
       success do |subscription|
-        render "add"
+        head :created
       end
 
       failure(:invalid_email) do |error|
-        render "invalid_email"
+        invalid_email = { error: "Die E-Mailadresse war nicht korrekt." }
+        respond_with invalid_email, status: :not_acceptable
       end
 
       failure do |error|
         Rails.logger.debug "SubscriptionController#add -> failed because of #{error}"
-        render inline: "Da ist etwas fehlgeschlagen!"
+        respond_with default_error, status: :bad_request
       end
     end
   end
@@ -25,12 +27,13 @@ class SubscriptionController < ApplicationController
   def notify
     NotifySubscribersService.run(params).match do
       success do |message|
-        render inline: "Nachricht versendet!"
+        head :ok
       end
 
       failure do |error|
         Rails.logger.debug "SubscriptionController#notify -> failed because of #{error}"
-        render inline: "Da ist etwas fehlgeschlagen!"
+
+        head :bad_request
       end
     end
   end
@@ -38,12 +41,12 @@ class SubscriptionController < ApplicationController
   def remove
     RemoveSubscriptionService.run(params).match do
       success do |result|
-        render "remove"
+        head :ok
       end
 
       failure do |error|
         Rails.logger.debug "SubscriptionController#remove -> failed because of #{error}"
-        render inline: "Da ist etwas fehlgeschlagen!"
+        head :bad_request
       end
     end
   end

@@ -30,7 +30,7 @@ feature "NotifySubscriptions", :type => :feature do
     expect(page).to have_text("test-event von")
     fill_in "message", with: "My great message"
     click_button "Absenden"
-    expect(page).to have_text("Nachricht versendet!")
+    expect(page.status_code).to eq(200)
 
     expect(Message.count).to eq(1)
     expect(event.messages.count).to eq(1)
@@ -64,7 +64,7 @@ feature "NotifySubscriptions", :type => :feature do
     expect(page).to have_text("Versende eine Nachricht an alle deine Anhänger")
     fill_in "message", with: "My great message"
     click_button "Absenden"
-    expect(page).to have_text("Nachricht versendet!")
+    expect(page.status_code).to eq(200)
     expect(Message.count).to eq(1)
     expect(user.messages.count).to eq(1)
   end
@@ -97,7 +97,8 @@ feature "NotifySubscriptions", :type => :feature do
     visit event_path(event)
     expect(page).to have_text("test-event von")
     click_button "Absenden"
-    expect(page).to_not have_text("Nachricht versendet!")
+
+    expect(page.status_code).to eq(400)
     expect(Message.count).to eq(0)
   end
 end
