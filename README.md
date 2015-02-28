@@ -21,8 +21,12 @@
 - [X] Persist the send messages
 - [X] Write js to handle the unsubscribale form
 - [X] subscription controller should only respond in json
-- [ ] Build Subscribe Snippet
-- [ ] Public page for event, with notifications send and which has links to subscribe / unsubscribe
+- [ ] Public page for event
+  - [ ] General Info
+  - [ ] Latest notifications
+  - [ ] Subscribe
+  - [ ] Unsubscriber
+- [ ] Public page for user (with list of done and upcoming events)
 - [ ] Info mail to subscribers of user about new events
 
 ## Idea
