@@ -20,7 +20,7 @@
 - [X] User has name
 - [X] Persist the send messages
 - [X] Write js to handle the unsubscribale form
-- [ ] subscription controller should only respond in json
+- [X] subscription controller should only respond in json
 - [ ] Build Subscribe Snippet
 - [ ] Public page for event, with notifications send and which has links to subscribe / unsubscribe
 - [ ] Info mail to subscribers of user about new events
