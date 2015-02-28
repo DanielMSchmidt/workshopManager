@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   post 'subscription/notify'
   get 'subscription/:unsubscribe_token/remove' => 'subscription#remove', as: "subscription_remove"
 
+  namespace :public do
+    resources :events, only: [:show]
+  end
+
   resources :events do
     get 'subscribe', on: :member
     get 'unsubscribe', on: :member

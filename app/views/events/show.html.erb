@@ -50,6 +50,7 @@
   <div class="col-xs-3">
     <h3>Links</h3>
     <ul>
+      <li>Öffentliche Seite: <%= link_to public_event_url(@event), public_event_url(@event)%></li>
       <li>Anmelden: <%= link_to subscribe_event_url(@event), subscribe_event_url(@event)%></li>
       <li>Abmelden: <%= link_to unsubscribe_event_url(@event), unsubscribe_event_url(@event)%></li>
     </ul>
