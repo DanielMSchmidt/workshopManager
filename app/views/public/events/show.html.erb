@@ -2,11 +2,44 @@
   <h1 class="event-headline"><%= @event.name %> von <%= @event.user_name%></h1>
   <p class="event-description"><%= @event.description %></p>
 
+  <section>
+    <h2 class="event-subheadline">Jetzt anmelden!</h2>
+    <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">
+      <div class="form-group">
+        <label for="email">E-Mail Adresse</label><br>
+        <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
+      </div>
+      <div class="actions">
+        <input type="submit" class="btn btn-primary" value="Anmelden">
+      </div>
+      <input name="subscribable_id" type="hidden" value="<%= @event.id %>">
+      <input name="subscribable_type" type="hidden" value="Event">
+    </form>
+  </section>
+
+  <section>
   <h2 class="event-subheadline">Aktuelles</h2>
   <ul>
     <% @event.messages.each do |msg|  %>
       <li><%= msg.content %></li>
     <% end %>
   </ul>
+  </section>
+
+  <section>
+    <h2 class="event-subheadline">Bereits angemeldet und du möchtest dich abmelden?</h2>
+
+    <form accept-charset="UTF-8" method="POST" class="js-unsubscribe-event-form">
+      <div class="form-group">
+        <label for="email">E-Mail Adresse</label><br>
+        <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
+      </div>
+      <div class="actions">
+        <input type="submit" class="btn btn-primary" value="Abmelden">
+      </div>
+      <input name="subscribable_id" type="hidden" value="<%= @event.id %>">
+      <input name="subscribable_type" type="hidden" value="Event">
+    </form>
+  </section>
 </div>
 
