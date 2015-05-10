@@ -25,9 +25,13 @@
   - [X] General Info
   - [X] Latest notifications
   - [ ] Subscribe
-  - [ ] Unsubscriber
-- [ ] Public page for user (with list of done and upcoming events)
+  - [ ] Unsubscribe
+- [ ] Public page for user
+  - [ ] list of done and upcoming events
+  - [ ] subscribe
+  - [ ] unsubscribe
 - [ ] Info mail to subscribers of user about new events
+- [ ] Rebuild UI with React.js
 
 ## Idea
 
