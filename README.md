@@ -21,11 +21,11 @@
 - [X] Persist the send messages
 - [X] Write js to handle the unsubscribale form
 - [X] subscription controller should only respond in json
-- [ ] Public page for event
+- [X] Public page for event
   - [X] General Info
   - [X] Latest notifications
-  - [ ] Subscribe
-  - [ ] Unsubscribe
+  - [X] Subscribe
+  - [X] Unsubscribe
 - [ ] Public page for user
   - [ ] list of done and upcoming events
   - [ ] subscribe
