@@ -1,4 +1,4 @@
-<h1>Anmeldung für <%= @user.email %></h1>
+<h1>Anmeldung für <%= @user.name %></h1>
 <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">
   <div class="form-group">
     <input name="subscribable_id" type="hidden" value="<%= @user.id %>">
