@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :events, only: [:show]
+    resources :user, only: [:show]
   end
 
   resources :events do

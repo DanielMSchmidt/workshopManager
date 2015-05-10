@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-
+              <li><%= link_to 'Deine Seite', public_user_path(current_user.id), target: '_blank' %></li>
               <li><%= link_to 'Nachrichten', message_index_path %></li>
               <li><%= link_to 'Workshops', events_path %></li>
               <li><%= link_to 'Abmelden', destroy_user_session_path, method: :delete %></li>

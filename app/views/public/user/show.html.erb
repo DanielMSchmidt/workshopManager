@@ -1,0 +1,53 @@
+<h1><%= @user.name %></h1>
+
+<section>
+  <h2>Bevorstehende Veranstalungen</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Beschreibung</th>
+        <th>Datum</th>
+        <th>Zeitraum</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @upcoming_events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= truncate(event.description) %></td>
+          <td><%= event.start %></td>
+          <td><%= event.duration %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Bisherige Veranstalungen</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Beschreibung</th>
+        <th>Datum</th>
+        <th>Zeitraum</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @finished_events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= truncate(event.description) %></td>
+          <td><%= event.start %></td>
+          <td><%= event.duration %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

@@ -27,11 +27,12 @@
   - [X] Subscribe
   - [X] Unsubscribe
 - [ ] Public page for user
-  - [ ] list of done and upcoming events
+  - [X] list of done and upcoming events
   - [ ] subscribe
   - [ ] unsubscribe
 - [ ] Info mail to subscribers of user about new events
 - [ ] Rebuild UI with React.js
+- [ ] Add some nice styling
 
 ## Idea
 
