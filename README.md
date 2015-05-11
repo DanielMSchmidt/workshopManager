@@ -26,12 +26,14 @@
   - [X] Latest notifications
   - [X] Subscribe
   - [X] Unsubscribe
-- [ ] Public page for user
+- [X] Public page for user
   - [X] list of done and upcoming events
-  - [ ] subscribe
-  - [ ] unsubscribe
+  - [X] subscribe
+  - [X] unsubscribe
 - [ ] Info mail to subscribers of user about new events
+- [ ] Subscription with optional name and person count
 - [ ] Rebuild UI with React.js
+  - [ ] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
 - [ ] Add some nice styling
 
 ## Idea
