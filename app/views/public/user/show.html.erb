@@ -53,33 +53,6 @@
 </section>
 
 <section>
-  <h2 class="event-subheadline">Nie wieder eine Veranstaltung von <%= @user.name %> verpassen!</h2>
-
-  <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">
-    <div class="form-group">
-      <label for="email">E-Mail Adresse</label><br>
-      <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
-    </div>
-    <div class="actions">
-      <input type="submit" class="btn btn-primary" value="Anmelden">
-    </div>
-    <input name="subscribable_id" type="hidden" value="<%= @user.id %>">
-    <input name="subscribable_type" type="hidden" value="User">
-  </form>
-</section>
-
-<section>
-  <h2 class="event-subheadline">Bereits angemeldet und du möchtest dich abmelden?</h2>
-
-  <form accept-charset="UTF-8" method="POST" class="js-unsubscribe-event-form">
-    <div class="form-group">
-      <label for="email">E-Mail Adresse</label><br>
-      <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
-    </div>
-    <div class="actions">
-      <input type="submit" class="btn btn-primary" value="Abmelden">
-    </div>
-    <input name="subscribable_id" type="hidden" value="<%= @user.id %>">
-    <input name="subscribable_type" type="hidden" value="User">
-  </form>
+  <h2 class="event-subheadline">An & Abmeldung</h2>
+  <%= react_component('SubscriptionForm', {subscribableType: 'User', subscribableId: @user.id}, {prerender: true}) %>
 </section>

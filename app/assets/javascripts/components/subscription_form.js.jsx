@@ -8,7 +8,7 @@ var SubscriptionForm = React.createClass({
 
   render: function() {
     return (
-      <form accept-charset="UTF-8" method="POST" className="js-unsubscribe-event-form">
+      <form accept-charset="UTF-8" method="POST">
         <div className="form-group">
           <label htmlFor="email">E-Mail Adresse</label><br />
           <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" className="form-control" />
