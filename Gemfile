@@ -15,12 +15,13 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem "therubyracer"
+gem 'therubyracer'
 gem 'less-rails'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'solid_use_case'
-gem "autoprefixer-rails"
+gem 'autoprefixer-rails'
+gem 'react-rails', '~> 1.0'
 
 group :development, :test do
   gem 'spring-commands-rspec'
@@ -30,7 +31,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.4.1'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
 end
 
 # Use jquery as the JavaScript library
@@ -58,6 +59,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end

@@ -84,4 +84,6 @@ Rails.application.configure do
     domain:         'heroku.com',
     authentication: :plain
   }
+
+  config.react.variant = :production
 end
