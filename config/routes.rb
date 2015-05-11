@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   post 'subscription/add'
   post 'subscription/notify'
+  get 'subscription/:type/:id' => 'subscription#get_subscribers'
   get 'subscription/:unsubscribe_token/remove' => 'subscription#remove', as: "subscription_remove"
 
   namespace :public do

@@ -6,6 +6,11 @@ class SubscriptionController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def get_subscribers
+    subscribable = params[:type].constantize.find(params[:id])
+    render json: subscribable.subscriptions.map(&:subscriber)
+  end
+
   def add
     AddSubscriptionService.run(params).match do
       success do |subscription|
