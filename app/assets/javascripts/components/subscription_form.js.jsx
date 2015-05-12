@@ -44,10 +44,26 @@ var SubscriptionForm = React.createClass({
     clearInterval(interval);
   },
 
-  handleSubmit: function() {
+  handleSubmit: function(e) {
+    e.preventDefault();
+    debugger;
+    if (this.state.userKnown) {
+      debugger;
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: '/subscription/add',
+        data: $(React.findDOMNode(this.refs.form)).serialize(),
+        success: function(data) {
+          debugger;
+          this.setState({userKnown: true, email: ''});
+        }.bind(this),
+        dataType: 'json'
+      });
+    }
+
     // TODO: subscribe (post to subscribePath) / unsubscribe user (see events.js)
       // set userKnown to true and empty email
-    debugger;
   },
 
   handleChange: function(e) {
@@ -56,7 +72,7 @@ var SubscriptionForm = React.createClass({
 
   render: function() {
     return (
-      <form accept-charset="UTF-8" method="POST" onSubmit={this.handleSubmit}>
+      <form ref="form" accept-charset="UTF-8" method="POST" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">E-Mail Adresse</label><br />
           <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" className="form-control" value={this.state.email} onChange={this.handleChange} />

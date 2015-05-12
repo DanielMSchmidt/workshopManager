@@ -16,7 +16,7 @@ class AddSubscriptionService
     end
   end
 
-  def get_subscribable (params)
+  def get_subscribable(params)
     if params[:subscribable_id].present? && params[:subscribable_type].present?
       subscribable = params[:subscribable_type].constantize.find(params[:subscribable_id])
       params[:subscribable] = subscribable
