@@ -9,6 +9,7 @@ module Public
       events = @user.events.all
       @upcoming_events = events.reject(&UPCOMING_EVENT)
       @finished_events = events.select(&UPCOMING_EVENT)
+      @subscribers = @user.subscriptions.map(&:subscriber).map(&:email)
     end
   end
 end

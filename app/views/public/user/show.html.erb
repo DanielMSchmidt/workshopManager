@@ -53,6 +53,13 @@
 </section>
 
 <section>
+  <h2 class="event-subheadline">An- & Abmeldung</h2>
+
+  <%= react_component('SubscriptionForm', { subscribableId: @user.id, subscribableType: 'User', subscribers: @subscribers }, {prerender: true}) %>
+</section>
+
+
+<section>
   <h2 class="event-subheadline">Nie wieder eine Veranstaltung von <%= @user.name %> verpassen!</h2>
 
   <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">

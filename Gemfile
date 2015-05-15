@@ -21,6 +21,7 @@ gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'solid_use_case'
 gem "autoprefixer-rails"
+gem 'react-rails', '~> 1.0'
 
 group :development, :test do
   gem 'spring-commands-rspec'

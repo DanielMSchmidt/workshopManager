@@ -19,6 +19,7 @@ class SubscriptionController < ApplicationController
 
       failure do |error|
         Rails.logger.debug "SubscriptionController#add -> failed because of #{error}"
+        default_error = { error: "Ein Fehler ist aufgetreten" }
         respond_with default_error, status: :bad_request
       end
     end
