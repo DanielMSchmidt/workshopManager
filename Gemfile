@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem "therubyracer"
 gem 'less-rails'
-gem 'devise'
+gem 'devise', '3.4.1'
 gem 'solid_use_case'
 gem "autoprefixer-rails"
 gem 'react-rails', '~> 1.0'
