@@ -8,6 +8,8 @@ feature "AddSubscriptions", :type => :feature do
     Subscription.all.destroy_all
 
     # Setup
+    user = double('user', subscribers: [])
+    allow_any_instance_of(Event).to receive(:user).and_return(user)
     event = Event.create(name: 'test-event', description: 'test description', user_id: 1, start: Time.now, duration: '2 hours')
 
     # Test
@@ -33,6 +35,8 @@ feature "AddSubscriptions", :type => :feature do
     Subscription.all.destroy_all
 
     # Setup
+    user = double('user', subscribers: [])
+    allow_any_instance_of(Event).to receive(:user).and_return(user)
     event = Event.create(name: 'test-event', description: 'test description', user_id: 1, start: Time.now, duration: '2 hours')
     subscriber = Subscriber.create(email: "test@test.org")
 
