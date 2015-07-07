@@ -32,6 +32,8 @@
   - [X] unsubscribe
 - [X] Info mail to subscribers of user about new events
 - [ ] Rebuild UI with React.js
+  - [ ] external
+  - [ ] admin area
   - [ ] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
   - [ ] Add some nice styling
 - [ ] Subscription with optional name and person count
