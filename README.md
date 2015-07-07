@@ -31,10 +31,11 @@
   - [X] subscribe
   - [X] unsubscribe
 - [X] Info mail to subscribers of user about new events
-- [ ] Subscription with optional name and person count
 - [ ] Rebuild UI with React.js
   - [ ] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
   - [ ] Add some nice styling
+- [ ] Subscription with optional name and person count
+- [ ] add possibility to delay the sending and generating all emails and messages for a given period of time
 
 ## Idea
 
