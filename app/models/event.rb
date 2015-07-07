@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   delegate :name, to: :user, prefix: true
   delegate :email, to: :user, prefix: false
 
+  after_create :notify_users_subscriber_about_new_event
+
   def notification_subject
     "Neue Informationen zu dem Workshop #{self.name}"
   end
@@ -17,5 +19,12 @@ class Event < ActiveRecord::Base
 
   def notify_about_subscription(subscription)
     SubscriptionMailer.event(subscription).deliver
+  end
+
+  def notify_users_subscriber_about_new_event
+    self.user.subscribers.each do |subscriber|
+      mail = SubscriberMailer.notify_about_new_event(subscriber, self)
+      mail.deliver
+    end
   end
 end

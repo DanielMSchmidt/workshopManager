@@ -10,4 +10,12 @@ class SubscriberMailer < ActionMailer::Base
 
     mail to: to, from: from, subject: subject
   end
+
+  def notify_about_new_event(subscriber, event)
+    @event = event
+    @username = event.user.name
+    @eventname = event.name
+
+    mail to: subscriber.email, subject: "#{@username} hat ein neues Event: '#{@eventname}'"
+  end
 end
