@@ -42,4 +42,5 @@ Rails.application.configure do
   ActionMailer::Base.delivery_method = :smtp
 
   config.action_mailer.delivery_method = :letter_opener
+  config.react.variant = :development
 end
