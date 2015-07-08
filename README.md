@@ -57,5 +57,5 @@
 
 
 ## Notes
-- the Token for unsubscribe request should be of format "<type>,<type_id>,<email>" in Base64 encoded
+- the Token for unsubscribe request should be of format `<type>,<type_id>,<email>` in Base64 encoded
 
