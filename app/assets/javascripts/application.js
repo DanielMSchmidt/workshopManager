@@ -25,7 +25,12 @@ $(function() {
     format: 'd.m.yyyy',
     onStart: function() {
       // initial format 2001-2-3
-      var parts = this.$node.val().split('-');
+      var input = this.$node.val();
+      if (input === '') {
+        return;
+      }
+
+      var parts = input.split('-');
       this.$node.val(parts[2] + '.' + parts[1] + '.' + parts[0]);
     }
   });
