@@ -1,31 +1,29 @@
 <h1>Meine Workshops</h1>
 
-<table class="table table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Beschreibung</th>
-      <th>Datum</th>
-      <th>Zeitraum</th>
-      <th colspan="3">Aktionen</th>
-    </tr>
-  </thead>
+<div class="fixed-action-btn">
+  <%= link_to '+', new_event_path, class: 'btn-floating btn-large waves-effect waves-light red' %>
+</div>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= truncate(event.description) %></td>
-        <td><%= event.start %></td>
-        <td><%= event.duration %></td>
-        <td><%= link_to '', event_path(event), :class => "fa fa-info" %></td>
-        <td><%= link_to '', edit_event_path(event), :class => "fa fa-gear" %></td>
-        <td><%= link_to 'X', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul class="collapsible" data-collapsible="accordion">
+  <% @events.each do |event| %>
+    <li>
+      <div class="event-headline collapsible-header">
+        <span><%= event.name %></span>
+        <span class="badge"><%= event.start.strftime("%-d.%-m.%Y") %></span>
+      </div>
+      <div class="collapsible-body">
+        <a class='event-action dropdown-button btn' href='#' data-activates='dropdown-<%= event.id %>'>Aktionen</a>
+        <p><%= truncate(event.description) %></p><br>
 
-<br>
-
-<%= link_to 'Neuer Workshop', new_event_path %>
+        <!-- Dropdown Structure -->
+        <ul id='dropdown-<%= event.id %>' class='dropdown-content'>
+          <li><%= link_to 'Anzeigen', event_path(event) %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Bearbeiten', edit_event_path(event) %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Löschen', event, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </div>
+    </li>
+  <% end %>
+</ul>
