@@ -20,7 +20,7 @@ feature "NotifySubscriptions", :type => :feature do
     visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: "testtest"
-    click_button "Log in"
+    click_button "Anmelden"
 
     # Test
     expect(event.subscribers.first).to eq(subscriber)
@@ -54,7 +54,7 @@ feature "NotifySubscriptions", :type => :feature do
     visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: "testtest"
-    click_button "Log in"
+    click_button "Anmelden"
 
     # Test
     expect(user.subscribers.first).to eq(subscriber)
@@ -88,7 +88,7 @@ feature "NotifySubscriptions", :type => :feature do
     visit new_user_session_path
     fill_in "Email", with: user.email
     fill_in "Password", with: "testtest"
-    click_button "Log in"
+    click_button "Anmelden"
 
     # Test
     expect(event.subscribers.first).to eq(subscriber)
