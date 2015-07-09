@@ -8,6 +8,7 @@ var SubscriptionForm = React.createClass({
     subscribableType: React.PropTypes.string.isRequired,
     subscribableId: React.PropTypes.number.isRequired,
     subscriptions: React.PropTypes.array.isRequired,
+    text: React.PropTypes.string.isRequired,
   },
 
   getInitialState: function() {
@@ -103,7 +104,7 @@ var SubscriptionForm = React.createClass({
         <div>
           <h2>An- / Abmelden</h2>
 
-          <p>Bitte geben Sie Ihre E-Mailadresse ein um sich an, beziehungsweise abzumelden für diese Veranstaltung.</p>
+          <p>{ this.props.text }</p>
 
           { this.state.knownMail ? this.renderUnsubscribe() : this.renderSubscribe() }
         </div>

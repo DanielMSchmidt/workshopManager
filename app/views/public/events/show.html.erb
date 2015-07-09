@@ -31,7 +31,7 @@
 
     <div id="subscriptions" class="col s12">
       <% # TODO: move data fetching into controller or sth %>
-      <%= react_component('SubscriptionForm', { subscribeUrl: subscription_add_url, subscribableType: 'Event', subscribableId: @event.id, subscriptions: @event.subscriptions.all.map(&:subscriber).map(&:email).uniq }, {prerender: true}) %>
+      <%= react_component('SubscriptionForm', { subscribeUrl: subscription_add_url, subscribableType: 'Event', subscribableId: @event.id, subscriptions: @event.subscriptions.all.map(&:subscriber).map(&:email).uniq, text: 'Bitte geben Sie Ihre E-Mailadresse ein um sich an, beziehungsweise abzumelden für diese Veranstaltung.' }, {prerender: true}) %>
     </div>
   </div>
 </div>
