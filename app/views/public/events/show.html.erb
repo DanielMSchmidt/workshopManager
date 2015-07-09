@@ -2,6 +2,9 @@
   <h1 class="event-headline"><%= @event.name %> von <%= @event.user_name%></h1>
   <p class="event-description"><%= @event.description %></p>
 
+  <% # TODO: move data fetching into controller or sth %>
+  <%= react_component('SubscriptionForm', { subscribeUrl: subscription_add_url, subscribableType: 'Event', subscribableId: @event.id, subscriptions: @event.subscriptions.all.map(&:subscriber).map(&:email).uniq }, {prerender: true}) %>
+
   <section>
     <h2 class="event-subheadline">Jetzt anmelden!</h2>
     <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">

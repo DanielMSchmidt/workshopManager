@@ -1,8 +1,8 @@
 var MessageArea = React.createClass({
   propTypes: {
-    messages: React.PropTypes.array,
-    messageCreateUrl: React.PropTypes.string,
-    eventId: React.PropTypes.number,
+    messages: React.PropTypes.array.isRequired,
+    messageCreateUrl: React.PropTypes.string.isRequired,
+    eventId: React.PropTypes.number.isRequired,
   },
 
   getInitialState: function() {
