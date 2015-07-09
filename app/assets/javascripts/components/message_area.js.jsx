@@ -40,27 +40,15 @@ var MessageArea = React.createClass({
   renderForm: function() {
     return (
       <form onSubmit={this.onMessageSubmit}>
-        <label htmlFor="newMessage">Neue Nachricht</label>
-        <textarea id="newMessage" value={this.state.newMessage} onChange={this.handleNewMessageChange} className="materialize-textarea" placeholder="Bitte Nachricht eingeben (Diese wird nach dem Absenden an alle Teilnehmer verschickt)"></textarea>
+        <label htmlFor="newMessage active">Neue Nachricht</label>
+        <textarea name="message" id="newMessage" value={this.state.newMessage} onChange={this.handleNewMessageChange} className="materialize-textarea" placeholder="Diese Nachricht wird nach dem Absenden an alle Teilnehmer verschickt"></textarea>
         <button className="btn waves-effect waves-light" type="submit" name="action">Absenden</button>
       </form>
     );
   },
 
   renderSpinner: function() {
-    return (
-      <div className="preloader-wrapper big active">
-        <div className="spinner-layer spinner-blue">
-          <div className="circle-clipper left">
-            <div className="circle"></div>
-          </div><div className="gap-patch">
-            <div className="circle"></div>
-          </div><div className="circle-clipper right">
-            <div className="circle"></div>
-          </div>
-        </div>
-      </div>
-    );
+    return (<Spinner />)
   },
 
   render: function() {
@@ -70,10 +58,12 @@ var MessageArea = React.createClass({
       <div>
         <h2>Nachrichten</h2>
         <div className='row'>
-          <div className="input-field col s6">
+          <div className="input-field col s12">
             {this.state.postingMessage ? this.renderSpinner() : this.renderForm()}
           </div>
-          <ul className="collapsible col s6" data-collapsible="accordion">
+        </div>
+        <div className='row'>
+          <ul className="collapsible col s12" data-collapsible="accordion">
             { this.props.messages.map(function(message) {
                 var date = new Date(message.created_at);
                 return (
