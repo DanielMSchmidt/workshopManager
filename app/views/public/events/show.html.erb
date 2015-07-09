@@ -1,48 +1,37 @@
 <div class="event">
-  <h1 class="event-headline"><%= @event.name %> von <%= @event.user_name%></h1>
-  <p class="event-description"><%= @event.description %></p>
+  <h1 class="event-headline"><%= @event.name %><small> von <%= @event.user_name%></small></h1>
 
-  <% # TODO: move data fetching into controller or sth %>
-  <%= react_component('SubscriptionForm', { subscribeUrl: subscription_add_url, subscribableType: 'Event', subscribableId: @event.id, subscriptions: @event.subscriptions.all.map(&:subscriber).map(&:email).uniq }, {prerender: true}) %>
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs z-depth-1">
+        <li class="tab col s3"><a href="#description">Beschreibung</a></li>
+        <li class="tab col s3"><a href="#news">Neuigkeiten</a></li>
+        <li class="tab col s3"><a href="#subscriptions">Anmelden</a></li>
+      </ul>
+    </div>
 
-  <section>
-    <h2 class="event-subheadline">Jetzt anmelden!</h2>
-    <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">
-      <div class="form-group">
-        <label for="email">E-Mail Adresse</label><br>
-        <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
-      </div>
-      <div class="actions">
-        <input type="submit" class="btn btn-primary" value="Anmelden">
-      </div>
-      <input name="subscribable_id" type="hidden" value="<%= @event.id %>">
-      <input name="subscribable_type" type="hidden" value="Event">
-    </form>
-  </section>
+    <div id="description" class="col s12">
+      <h2>Beschreibung</h2>
 
-  <section>
-  <h2 class="event-subheadline">Aktuelles</h2>
-  <ul>
-    <% @event.messages.each do |msg|  %>
-      <li><%= msg.content %></li>
-    <% end %>
-  </ul>
-  </section>
+      <p class="event-description"><%= @event.description %></p>
+    </div>
 
-  <section>
-    <h2 class="event-subheadline">Bereits angemeldet und du möchtest dich abmelden?</h2>
+    <div id="news" class="col s12">
+      <h2 class="event-subheadline">Aktuelles</h2>
 
-    <form accept-charset="UTF-8" method="POST" class="js-unsubscribe-event-form">
-      <div class="form-group">
-        <label for="email">E-Mail Adresse</label><br>
-        <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
-      </div>
-      <div class="actions">
-        <input type="submit" class="btn btn-primary" value="Abmelden">
-      </div>
-      <input name="subscribable_id" type="hidden" value="<%= @event.id %>">
-      <input name="subscribable_type" type="hidden" value="Event">
-    </form>
-  </section>
+      <ul class="collapsible popout" data-collapsible="accordion" style="transform: translateZ(0);">
+        <% @event.messages.each do |msg|  %>
+          <li>
+            <div class="collapsible-header"><%= truncate(msg.content, :length => 30) %></div>
+            <div class="collapsible-body"><p><%= msg.content %></p></div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id="subscriptions" class="col s12">
+      <% # TODO: move data fetching into controller or sth %>
+      <%= react_component('SubscriptionForm', { subscribeUrl: subscription_add_url, subscribableType: 'Event', subscribableId: @event.id, subscriptions: @event.subscriptions.all.map(&:subscriber).map(&:email).uniq }, {prerender: true}) %>
+    </div>
+  </div>
 </div>
-
