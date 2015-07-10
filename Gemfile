@@ -8,7 +8,8 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -16,10 +17,11 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem "therubyracer"
 gem 'less-rails'
-gem "twitter-bootstrap-rails"
-gem 'devise'
+gem 'devise', '3.4.1'
 gem 'solid_use_case'
 gem "autoprefixer-rails"
+gem 'react-rails', '~> 1.0'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'spring-commands-rspec'

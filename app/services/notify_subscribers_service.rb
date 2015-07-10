@@ -4,7 +4,6 @@ class NotifySubscribersService
   steps :validate_subscribable_type, :get_subscribable, :check_message, :persist_message, :notfiy_subscribers
 
   # Validate subscribable type
-
   def validate_subscribable_type(params)
     if params[:subscribable_type].in? ['Event', 'User']
       continue(params)

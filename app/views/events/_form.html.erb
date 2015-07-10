@@ -12,23 +12,32 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, 'Name' %><br>
-    <%= f.text_field :name, :class => "form-control" %>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :name, 'Name' %><br>
+      <%= f.text_field :name, :class => "validate" %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.label :duration, 'Zeitraum' %><br>
+      <%= f.text_field :duration, :class => "validate" %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :description, 'Beschreibung' %><br>
-    <%= f.text_area :description, :class => "form-control" %>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :description, 'Beschreibung' %><br>
+      <%= f.text_area :description, :class => "materialize-textarea" %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.label :start, 'Tag' %><br>
+      <%= f.date_field :start, class: 'datepicker' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :start, 'Tag' %><br>
-    <%= f.datetime_select :start %>
-  </div>
-  <div class="form-group">
-    <%= f.label :duration, 'Zeitraum' %><br>
-    <%= f.text_field :duration, :class => "form-control" %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Speichern", :class => "btn btn-primary" %>
+
+  <div class="row">
+    <div class="actions col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Absenden</button>
+      <%= link_to 'Zurück', events_path, :class => "waves-effect waves-light btn" %>
+    </div>
   </div>
 <% end %>

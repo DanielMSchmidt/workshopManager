@@ -20,6 +20,8 @@
 
 
 ## Roadmap
+
+### Version 1
 - [X] User authentication
 - [X] CRUD for workshops
 - [X] Subscribe Form
@@ -39,11 +41,22 @@
   - [X] subscribe
   - [X] unsubscribe
 - [X] Info mail to subscribers of user about new events
-- [ ] Rebuild UI with React.js
-  - [ ] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
-  - [ ] Add some nice styling
+- [X] Rebuild UI with React.js
+  - [X] external
+  - [X] admin area
+  - [X] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
+  - [X] Add some nice styling
+- [ ] Style frontpage to be a nice landingpage
+- [ ] Style emails
+- [ ] make a deployment
+- [ ] add Analytics
+- [ ] add new relic
+
+### Version 2
 - [ ] Subscription with optional name and person count
 - [ ] add possibility to delay the sending and generating all emails and messages for a given period of time
+- [ ] add notify subscriptions tests
+- [ ] Fix docker setup (and find CI which supports testing and building docker containers)
 
 ## Idea
 
@@ -63,5 +76,5 @@
 
 
 ## Notes
-- the Token for unsubscribe request should be of format "<type>,<type_id>,<email>" in Base64 encoded
+- the Token for unsubscribe request should be of format `<type>,<type_id>,<email>` in Base64 encoded
 

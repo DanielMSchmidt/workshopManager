@@ -1,85 +1,69 @@
 <h1><%= @user.name %></h1>
 
-<section>
-  <h2>Bevorstehende Veranstalungen</h2>
 
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Beschreibung</th>
-        <th>Datum</th>
-        <th>Zeitraum</th>
-      </tr>
-    </thead>
+<div class="row">
+  <div class="col s12">
+    <ul class="tabs z-depth-1">
+      <li class="tab col s3"><a href="#upcoming">Bevorstehende Veranstaltungen</a></li>
+      <li class="tab col s3"><a href="#done">Bisherige Veranstalungen</a></li>
+      <li class="tab col s3"><a href="#subscriptions">Nie wieder verpassen</a></li>
+    </ul>
+  </div>
 
-    <tbody>
-      <% @upcoming_events.each do |event| %>
+  <div id="upcoming" class="col s12">
+    <h2>Bevorstehende Veranstalungen</h2>
+
+    <table class="table table-bordered table-hover">
+      <thead>
         <tr>
-          <td><%= event.name %></td>
-          <td><%= truncate(event.description) %></td>
-          <td><%= event.start %></td>
-          <td><%= event.duration %></td>
+          <th>Name</th>
+          <th>Beschreibung</th>
+          <th>Datum</th>
+          <th>Zeitraum</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</section>
+      </thead>
 
-<section>
-  <h2>Bisherige Veranstalungen</h2>
+      <tbody>
+        <% @upcoming_events.each do |event| %>
+          <tr>
+            <td><%= event.name %></td>
+            <td><%= truncate(event.description) %></td>
+            <td><%= event.start %></td>
+            <td><%= event.duration %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Beschreibung</th>
-        <th>Datum</th>
-        <th>Zeitraum</th>
-      </tr>
-    </thead>
+  <div id="done" class="col s12">
+    <h2>Bisherige Veranstalungen</h2>
 
-    <tbody>
-      <% @finished_events.each do |event| %>
+    <table class="table table-bordered table-hover">
+      <thead>
         <tr>
-          <td><%= event.name %></td>
-          <td><%= truncate(event.description) %></td>
-          <td><%= event.start %></td>
-          <td><%= event.duration %></td>
+          <th>Name</th>
+          <th>Beschreibung</th>
+          <th>Datum</th>
+          <th>Zeitraum</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</section>
+      </thead>
 
-<section>
-  <h2 class="event-subheadline">Nie wieder eine Veranstaltung von <%= @user.name %> verpassen!</h2>
+      <tbody>
+        <% @finished_events.each do |event| %>
+          <tr>
+            <td><%= event.name %></td>
+            <td><%= truncate(event.description) %></td>
+            <td><%= event.start %></td>
+            <td><%= event.duration %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <form accept-charset="UTF-8" method="POST" action="<%= subscription_add_url %>">
-    <div class="form-group">
-      <label for="email">E-Mail Adresse</label><br>
-      <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
-    </div>
-    <div class="actions">
-      <input type="submit" class="btn btn-primary" value="Anmelden">
-    </div>
-    <input name="subscribable_id" type="hidden" value="<%= @user.id %>">
-    <input name="subscribable_type" type="hidden" value="User">
-  </form>
-</section>
-
-<section>
-  <h2 class="event-subheadline">Bereits angemeldet und du möchtest dich abmelden?</h2>
-
-  <form accept-charset="UTF-8" method="POST" class="js-unsubscribe-event-form">
-    <div class="form-group">
-      <label for="email">E-Mail Adresse</label><br>
-      <input name="email" type="email" placeholder="Bitte E-Mail Adresse eingeben" class="form-control">
-    </div>
-    <div class="actions">
-      <input type="submit" class="btn btn-primary" value="Abmelden">
-    </div>
-    <input name="subscribable_id" type="hidden" value="<%= @user.id %>">
-    <input name="subscribable_type" type="hidden" value="User">
-  </form>
-</section>
+  <div id="subscriptions" class="col s12">
+    <% # TODO: move data fetching into controller or sth %>
+    <%= react_component('SubscriptionForm', { subscribeUrl: subscription_add_url, subscribableType: 'User', subscribableId: @user.id, subscriptions: @user.subscriptions.all.map(&:subscriber).map(&:email).uniq, text: 'Bitte geben Sie Ihre E-Mailadresse ein um nie wieder eine Veranstaltung dieser Person zu verpassen.' }, {prerender: true}) %>
+  </div>
+</div>

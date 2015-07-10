@@ -21,5 +21,9 @@ module WorkshopManager
     # config.i18n.default_locale = :de
     config.autoload_paths << Rails.root.join('app', 'services')
     config.assets.initialize_on_precompile = false
+    config.react.addons = true
+
+    # config.react.jsx_transform_options = {
+    # }
   end
 end

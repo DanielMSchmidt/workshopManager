@@ -12,5 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
+
+
+$(function() {
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format: 'd.m.yyyy',
+    onStart: function() {
+      // initial format 2001-2-3
+      var input = this.$node.val();
+      if (input === '') {
+        return;
+      }
+
+      var parts = input.split('-');
+      this.$node.val(parts[2] + '.' + parts[1] + '.' + parts[0]);
+    }
+  });
+})
