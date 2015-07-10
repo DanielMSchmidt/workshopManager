@@ -12,6 +12,8 @@
 
 
 ## Roadmap
+
+### Version 1
 - [X] User authentication
 - [X] CRUD for workshops
 - [X] Subscribe Form
@@ -37,6 +39,12 @@
   - [X] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
   - [X] Add some nice styling
 - [ ] Style frontpage to be a nice landingpage
+- [ ] Style emails
+- [ ] make a deployment
+- [ ] add Analytics
+- [ ] add new relic
+
+### Version 2
 - [ ] Subscription with optional name and person count
 - [ ] add possibility to delay the sending and generating all emails and messages for a given period of time
 
