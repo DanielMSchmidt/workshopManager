@@ -1,4 +1,4 @@
-[![Build Status](https://drone.io/github.com/DanielMSchmidt/workshopManager/status.png)](https://drone.io/github.com/DanielMSchmidt/workshopManager/latest)
+[ ![Codeship Status for DanielMSchmidt/workshopManager](https://codeship.com/projects/dd0f4b00-e353-0131-36da-0e6774a12e5d/status?branch=master)](https://codeship.com/projects/25425)
 [![Code Climate](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/gpa.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
 [![Test Coverage](https://codeclimate.com/github/DanielMSchmidt/workshopManager/badges/coverage.svg)](https://codeclimate.com/github/DanielMSchmidt/workshopManager)
 # Workshop Manager
