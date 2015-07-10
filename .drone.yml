@@ -1,4 +1,4 @@
-image: bradrydzewski/ruby:2.0.0
+image: ruby:2.0.0
 env:
   - CODECLIMATE_REPO_TOKEN=cf8c6017290140a82a5d4787fcc31655c18c0564c792bb6878ee557ba54c79b7
 script:
