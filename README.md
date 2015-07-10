@@ -47,6 +47,8 @@
 ### Version 2
 - [ ] Subscription with optional name and person count
 - [ ] add possibility to delay the sending and generating all emails and messages for a given period of time
+- [ ] add notify subscriptions tests
+- [ ] Fix docker setup (and find CI which supports testing and building docker containers)
 
 ## Idea
 
