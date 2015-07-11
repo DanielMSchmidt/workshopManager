@@ -7,7 +7,6 @@
 
 ### Docker
 
-- ```docker build .```
 - ```docker-compose up```
 - Pro tip: use [docker-osx-dev](https://github.com/brikis98/docker-osx-dev) on osx
 
