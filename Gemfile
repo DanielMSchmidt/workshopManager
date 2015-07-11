@@ -52,14 +52,18 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+# gem 'debugger'
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "letter_opener"
+
+  # Use Capistrano for deployment
+  gem 'capistrano',  '~> 3.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'rvm1-capistrano3', require: false
 end
