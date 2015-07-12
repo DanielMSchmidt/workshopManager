@@ -26,9 +26,7 @@ class SubscriptionController < ApplicationController
 
   def notify
     NotifySubscribersService.run(params).match do
-      success do |message|
-        head :ok
-      end
+      success { head :ok }
 
       failure do |error|
         Rails.logger.debug "SubscriptionController#notify -> failed because of #{error}"
@@ -40,9 +38,7 @@ class SubscriptionController < ApplicationController
 
   def remove
     RemoveSubscriptionService.run(params).match do
-      success do |result|
-        head :ok
-      end
+      success { head :ok }
 
       failure do |error|
         Rails.logger.debug "SubscriptionController#remove -> failed because of #{error}"
