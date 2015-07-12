@@ -24,7 +24,7 @@ set :log_level, :debug
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
-set :rvm_ruby_version, '2.2.0-p0'
+set :rbenv_ruby, File.read('.ruby-version').strip
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
@@ -34,9 +34,6 @@ set :rvm_ruby_version, '2.2.0-p0'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-# before 'deploy', 'rvm1:install:rvm'  # install/update RVM
-# # before 'deploy', 'rvm1:install:ruby'  # install/update Ruby
 
 
 namespace :deploy do

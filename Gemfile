@@ -50,7 +50,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 
 # Use debugger
@@ -64,6 +64,5 @@ group :development do
   # Use Capistrano for deployment
   gem 'capistrano',  '~> 3.1'
   gem 'capistrano-rails'
-  gem 'capistrano-rvm'
-  gem 'rvm1-capistrano3', require: false
+  gem 'capistrano-rbenv'
 end
