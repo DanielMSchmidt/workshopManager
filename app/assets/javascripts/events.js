@@ -1,3 +1,5 @@
+// TODO: Check if this js is still needed (was used for iframe, whats the current solution?)
+
 $(function() {
   'use strict';
 
@@ -17,7 +19,7 @@ $(function() {
 
     $('.js-unsubscribe-event-form').hide(300, function() {
       $('.js-unsubscribe-event-form').after(spinner); // adding a spinner
-      promise = $.get(path) // Do a get request
+      promise = $.get(path);
 
       promise.done(function(data){
         $('#spinner').replaceWith('Fertig!');
