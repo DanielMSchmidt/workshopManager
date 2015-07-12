@@ -21,7 +21,7 @@ $(function() {
       $('.js-unsubscribe-event-form').after(spinner); // adding a spinner
       promise = $.get(path);
 
-      promise.done(function(data){
+      promise.done(function(){
         $('#spinner').replaceWith('Fertig!');
       });
 
