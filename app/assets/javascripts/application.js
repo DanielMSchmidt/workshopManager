@@ -34,4 +34,4 @@ $(function() {
       this.$node.val(parts[2] + '.' + parts[1] + '.' + parts[0]);
     }
   });
-})
+});
