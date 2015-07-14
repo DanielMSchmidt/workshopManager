@@ -19,6 +19,11 @@
 - ```rake db:seed``` # seeds the database
 
 
+## Configuration
+(via .env with foreman or your local Enviroment)
+
+- Add GOOGLE_ANALYTICS_TRACKING_CODE to add a google analytics s
+
 ## Roadmap
 
 ### Version 1
@@ -46,10 +51,11 @@
   - [X] admin area
   - [X] register / edit registration / unregister should be rebuild to automatically detect if a user is already registered
   - [X] Add some nice styling
+- [X] make a deployment
+- [X] add Analytics
 - [ ] Style frontpage to be a nice landingpage
+- [ ] Style 500 page
 - [ ] Style emails
-- [ ] make a deployment
-- [ ] add Analytics
 - [ ] add new relic
 
 ### Version 2

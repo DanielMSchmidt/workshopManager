@@ -57,6 +57,10 @@ gem 'unicorn'
 # gem 'debugger'
 
 group :development do
+  #startup
+  gem "foreman"
+
+  # helpers
   gem "better_errors"
   gem "binding_of_caller"
   gem "letter_opener"
