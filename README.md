@@ -22,7 +22,7 @@
 ## Configuration
 (via .env with foreman or your local Enviroment)
 
-- Add GOOGLE_ANALYTICS_TRACKING_CODE to add a google analytics s
+- Add GOOGLE_ANALYTICS_TRACKING_CODE to add a google analytics
 
 ## Roadmap
 
@@ -53,10 +53,10 @@
   - [X] Add some nice styling
 - [X] make a deployment
 - [X] add Analytics
+- [X] add new relic
 - [ ] Style frontpage to be a nice landingpage
 - [ ] Style 500 page
 - [ ] Style emails
-- [ ] add new relic
 
 ### Version 2
 - [ ] Subscription with optional name and person count

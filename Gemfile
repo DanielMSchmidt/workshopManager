@@ -23,6 +23,9 @@ gem "autoprefixer-rails"
 gem 'react-rails', '~> 1.0'
 gem 'materialize-sass'
 
+# performance monitoring
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
