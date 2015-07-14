@@ -56,7 +56,7 @@
 - [X] make a deployment
 - [X] add Analytics
 - [X] add new relic
-- [ ] Style 500 / 404 page
+- [X] Style 500 / 404 page
 - [ ] Style frontpage to be a nice landingpage
 - [ ] Style emails
 
