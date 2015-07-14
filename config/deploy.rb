@@ -54,21 +54,5 @@ namespace :deploy do
     end
   end
 
-  task :generate_500_html do
-    on roles(:web) do |host|
-      public_500_html = File.join(release_path, "public/500.html")
-      execute :curl, "-k", "http://#{host.hostname}/500", "> #{public_500_html}"
-    end
-  end
-
-  task :generate_404_html do
-    on roles(:web) do |host|
-      public_404_html = File.join(release_path, "public/404.html")
-      execute :curl, "-k", "http://#{host.hostname}/404", "> #{public_404_html}"
-    end
-  end
-
-  after "deploy:published", :generate_500_html
-  after "deploy:published", :generate_404_html
   after :publishing, :restart
 end

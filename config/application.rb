@@ -22,7 +22,6 @@ module WorkshopManager
     config.autoload_paths << Rails.root.join('app', 'services')
     config.assets.initialize_on_precompile = false
     config.react.addons = true
-    config.exceptions_app = self.routes
 
     # config.react.jsx_transform_options = {
     # }
