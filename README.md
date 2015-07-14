@@ -7,14 +7,14 @@
 
 ### Docker
 
-- ```docker build .```
+- ```cp config/database.yml.docker config/database.yml```
 - ```docker-compose up```
 - Pro tip: use [docker-osx-dev](https://github.com/brikis98/docker-osx-dev) on osx
 
 ### Local
 
 - ```bundle install```
-- ```cp config/database.yml.sample config/database.yml```
+- ```cp config/database.yml.local config/database.yml```
 - ```rake db:migrate```
 - ```rake db:seed``` # seeds the database
 
