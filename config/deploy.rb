@@ -40,6 +40,13 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 
 namespace :deploy do
 
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute "sudo supervisorctl restart workshops:workshops-rails-1"
+    end
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -49,4 +56,5 @@ namespace :deploy do
     end
   end
 
+  after :publishing, :restart
 end
