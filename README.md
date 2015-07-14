@@ -24,7 +24,7 @@
 ## Configuration
 (via .env with foreman or your local Enviroment)
 
-- Add GOOGLE_ANALYTICS_TRACKING_CODE to add a google analytics
+- Nothing yet
 
 ## Roadmap
 
