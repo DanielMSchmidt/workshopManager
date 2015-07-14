@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
     <base href="/">
+    <%= render 'shared/ga' unless @ga.blank? %>
   </head>
   <body ng-app="workshopManager">
     <nav>
