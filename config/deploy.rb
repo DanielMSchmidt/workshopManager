@@ -22,8 +22,6 @@ set :log_level, :debug
 # Default value for :pty is false
 # set :pty, true
 
-set :branch, "capistrano-deployment"
-
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :rbenv_ruby, File.read('.ruby-version').strip
