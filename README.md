@@ -59,6 +59,7 @@
 - [X] Style 500 / 404 page
 - [ ] Style frontpage to be a nice landingpage
 - [ ] Style emails
+- [ ] [Add intro page](https://github.com/usablica/intro.js)
 
 ### Version 2
 - [ ] Subscription with optional name and person count
