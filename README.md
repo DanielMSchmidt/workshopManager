@@ -8,6 +8,7 @@
 ### Docker
 
 - ```cp config/database.yml.docker config/database.yml```
+- ```cp config/newrelic.yml.local config/newrelic.yml```
 - ```docker-compose up```
 - Pro tip: use [docker-osx-dev](https://github.com/brikis98/docker-osx-dev) on osx
 
@@ -15,6 +16,7 @@
 
 - ```bundle install```
 - ```cp config/database.yml.local config/database.yml```
+- ```cp config/newrelic.yml.local config/newrelic.yml```
 - ```rake db:migrate```
 - ```rake db:seed``` # seeds the database
 
@@ -54,8 +56,8 @@
 - [X] make a deployment
 - [X] add Analytics
 - [X] add new relic
+- [ ] Style 500 / 404 page
 - [ ] Style frontpage to be a nice landingpage
-- [ ] Style 500 page
 - [ ] Style emails
 
 ### Version 2
