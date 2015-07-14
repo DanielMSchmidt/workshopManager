@@ -69,5 +69,6 @@ namespace :deploy do
   end
 
   after "deploy:published", :generate_500_html
+  after "deploy:published", :generate_404_html
   after :publishing, :restart
 end
