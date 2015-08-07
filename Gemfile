@@ -72,4 +72,5 @@ group :development do
   gem 'capistrano',  '~> 3.1'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano-bower'
 end

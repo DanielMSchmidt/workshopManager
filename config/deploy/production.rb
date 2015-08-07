@@ -8,6 +8,8 @@ server 'workshops.danielmschmidt.de', user: 'root', roles: %w{web app}
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :branch, "develop"
+set :bower_flags, '--allow-root'
+
 
 # role-based syntax
 # ==================
