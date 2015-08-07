@@ -20,6 +20,7 @@ module WorkshopManager
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.autoload_paths << Rails.root.join('app', 'services')
+    config.assets.paths << Rails.root.join('app', 'assets', 'bower_components')
     config.assets.initialize_on_precompile = false
     config.react.addons = true
 

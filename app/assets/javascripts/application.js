@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require slick-carousel/slick/slick.js
 //= require react
 //= require react_ujs
 //= require components
@@ -34,4 +35,6 @@ $(function() {
       this.$node.val(parts[2] + '.' + parts[1] + '.' + parts[0]);
     }
   });
+
+  $('.slick').slick();
 });

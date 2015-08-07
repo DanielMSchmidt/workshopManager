@@ -5,6 +5,8 @@
 
 ## Installation
 
+- For both enviroments you need to run ```bower install``` first.
+
 ### Docker
 
 - ```cp config/database.yml.docker config/database.yml```
@@ -57,7 +59,7 @@
 - [X] add Analytics
 - [X] add new relic
 - [X] Style 500 / 404 page
-- [ ] Style frontpage to be a nice landingpage
+- [X] Style frontpage to be a nice landingpage
 - [ ] Style emails
 - [ ] [Add intro page](https://github.com/usablica/intro.js)
 

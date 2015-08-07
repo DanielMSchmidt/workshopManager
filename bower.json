@@ -1,0 +1,20 @@
+{
+  "name": "workshopManager",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DanielMSchmidt/workshopManager",
+  "authors": [
+    "Daniel Schmidt <dschmidt@weluse.de>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "slick-carousel": "~1.5.8"
+  }
+}
