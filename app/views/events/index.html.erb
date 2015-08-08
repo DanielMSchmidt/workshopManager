@@ -1,10 +1,11 @@
-<h1>Meine Workshops</h1>
+<a class="intro-start">Wie funktioniert das?</a>
+<h1>Meine Veranstaltungen</h1>
 
 <div class="fixed-action-btn">
   <%= link_to '+', new_event_path, class: 'btn-floating btn-large waves-effect waves-light red' %>
 </div>
 
-<ul class="collapsible" data-collapsible="accordion">
+<ul class="collapsible" data-collapsible="accordion" data-intro="Hier werden deine Workshops angezeigt, du kannst sie hier auch bearbeiten und löschen. Anlegen kannst du sie über das Plus unten rechts in der Ecke." data-step="1">
   <% @events.each do |event| %>
     <li>
       <div class="event-headline collapsible-header">

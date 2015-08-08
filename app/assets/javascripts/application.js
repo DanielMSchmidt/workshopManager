@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require slick-carousel/slick/slick.js
+//= require intro.js/intro.js
 //= require react
 //= require react_ujs
 //= require components
@@ -37,4 +38,12 @@ $(function() {
   });
 
   $('.slick').slick();
+  if ($('html').hasClass('intro-autostart')) {
+    introJs().start();
+  }
+
+  $('.intro-start').on('click', function () {
+    introJs().start();
+  });
+
 });

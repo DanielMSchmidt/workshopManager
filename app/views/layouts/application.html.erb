@@ -13,9 +13,9 @@
         <a href="<%= root_path %>" class="brand-logo">Workshop Manager</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if user_signed_in? %>
-            <li><%= link_to 'Deine Seite', public_user_path(current_user.id), target: '_blank' %></li>
-            <li><%= link_to 'Nachrichten', message_index_path %></li>
-            <li><%= link_to 'Workshops', events_path %></li>
+            <li data-intro="Diese Seite kannst du verteilen, hier finden Interessenten alle Informationen zu deinen Veranstaltungen. Zudem können sie dir hier folgen um auf dem Laufenden zu bleiben. Das bedeutet sie werden auch über E-Mail informiert wenn du etwas neues planst." data-step="2"><%= link_to 'Deine Seite', public_user_path(current_user.id), target: '_blank' %></li>
+            <li data-intro="Des weiteren kannst du auch Nachrichten an alle deine Anhänger versenden." data-step="3"><%= link_to 'Nachrichten', message_index_path %></li>
+            <li><%= link_to 'Veranstaltungen', events_path %></li>
             <li><%= link_to 'Abmelden', destroy_user_session_path, method: :delete %></li>
           <% else %>
             <% unless @hide_login %>
